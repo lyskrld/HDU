@@ -1,0 +1,4 @@
+﻿  DevilLanguage.cpp
+C:\Users\liuyi\Desktop\DevilLanguage\DevilLanguage\DevilLanguage.cpp(8,2): warning C4091: “typedef ”: 没有声明变量时忽略“QueueNode”的左侧
+C:\Users\liuyi\Desktop\DevilLanguage\DevilLanguage\DevilLanguage.cpp(19,2): warning C4091: “typedef ”: 没有声明变量时忽略“StackNode”的左侧
+  DevilLanguage.vcxproj -> C:\Users\liuyi\Desktop\DevilLanguage\x64\Debug\DevilLanguage.exe
