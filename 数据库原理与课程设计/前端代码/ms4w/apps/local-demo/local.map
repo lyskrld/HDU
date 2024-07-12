@@ -1,0 +1,220 @@
+/*
+ Description:  Simple map to display on MS4W localhost (http://127.0.0.1)
+			   Also configured for WMS service, and includes GeoJSON output
+ Data source:  NaturalEarth dataset, in Spatialite format.
+ Author:       Jeff McKenna, info@gatewaygeomatics.com
+ Last updated: 2020-01-30
+*/
+ 
+MAP
+NAME "local-demo"
+STATUS ON
+SIZE 600 400
+SYMBOLSET "../etc/symbols.txt"
+EXTENT -180 -90 180 90
+UNITS DD
+SHAPEPATH "./data"
+IMAGECOLOR 255 255 255
+FONTSET "../etc/fonts.txt"
+PROJECTION
+  "init=epsg:4326"
+END  
+
+WEB
+  IMAGEPATH "/ms4w/tmp/ms_tmp/" 
+  IMAGEURL "/ms_tmp/"
+  METADATA
+    "wms_title"   			"MS4W Demo WMS Server"
+    "wms_abstract"      	"This demonstration server was setup by Gateway Geomatics (https://gatewaygeomatics.com/) and is powered by MS4W (https://ms4w.com/)."      
+    "wms_onlineresource" 	"http://127.0.0.1/cgi-bin/mapserv.exe?map=/ms4w/apps/local-demo/local.map"
+    "wms_service_onlineresource" "https://gatewaygeomatics.com/"    
+    "wms_contactperson"		"Jeff McKenna" 
+    "wms_contactorganization" "Gateway Geomatics"
+    "wms_contactposition"	"President"
+    "wms_contactelectronicmailaddress" "info@gatewaygeomatics.com"
+    "wms_srs"   			"EPSG:4326 EPSG:3857 EPSG:4269"
+    "wms_getfeatureinfo_formatlist" "text/plain,text/html,application/json,application/vnd.ogc.gml,gml"
+    "wms_enable_request" 	"*"
+  END
+END
+
+OUTPUTFORMAT
+  NAME "png"
+  DRIVER AGG/PNG
+  MIMETYPE "image/png"
+  IMAGEMODE RGB
+  EXTENSION "png"
+  FORMATOPTION "GAMMA=0.75"
+END
+
+OUTPUTFORMAT
+  NAME "application/json"
+  DRIVER "OGR/GEOJSON"
+  MIMETYPE "application/json"
+  FORMATOPTION "FORM=SIMPLE"
+  FORMATOPTION "STORAGE=memory"
+END
+
+/* Ocean */
+LAYER
+  NAME "ocean"
+  METADATA
+    "wms_title" "Ocean"
+    "wms_include_items" "all"
+	"gml_include_items" "all"
+	"gml_featureid"     "ogc_fid"	
+  END
+  TYPE POLYGON
+  STATUS ON
+  CONNECTIONTYPE OGR
+  CONNECTION "demo.sqlite"
+  DATA "ocean"
+  PROJECTION
+    "init=epsg:4326"
+  END 
+  CLASS
+    NAME "Ocean"
+    STYLE
+      COLOR 134 204 249
+    END
+  END
+  TEMPLATE "ttt.html"
+END # layer
+
+/* Countries */
+LAYER
+  NAME "countries"
+  METADATA
+    "wms_title" 		"World Countries"
+    "wms_include_items" "all"
+	"gml_include_items" "all"
+	"gml_featureid"     "ogc_fid"
+  END
+  TYPE POLYGON
+  STATUS ON
+  CONNECTIONTYPE OGR
+  CONNECTION "demo.sqlite"
+  DATA "countries"
+  PROJECTION
+    "init=epsg:4326"
+  END
+  LABELITEM "name"
+  CLASS
+    NAME "World Countries"
+    STYLE
+      COLOR 200 200 200
+      OUTLINECOLOR 0 0 0
+      WIDTH 0.1
+    END
+    LABEL
+      FONT sans
+      TYPE truetype
+      POSITION AUTO     
+      PARTIALS FALSE
+      BUFFER 5
+      SIZE 5 
+      COLOR 75 75 75
+      MINFEATURESIZE 10
+    END     
+  END
+  TEMPLATE "ttt.html"  
+END # layer
+
+/* Lakes */
+LAYER
+  NAME "lakes"
+  METADATA
+    "wms_title" "World Lakes"
+    "wms_include_items" "all"
+	"gml_include_items" "all"
+	"gml_featureid"     "ogc_fid"	
+  END
+  TYPE POLYGON
+  STATUS ON
+  CONNECTIONTYPE OGR
+  CONNECTION "demo.sqlite"
+  DATA "lakes"
+  PROJECTION
+    "init=epsg:4326"
+  END 
+  CLASS
+    NAME "Lakes"
+    STYLE
+      COLOR 153 204 255
+    END
+  END
+  TEMPLATE "ttt.html"  
+END # layer
+
+/* Ocean labels */
+LAYER
+  NAME "ocean-labels"
+  METADATA
+    "wms_title" "Ocean Labels"
+    "wms_include_items" "all"
+	"gml_include_items" "all"
+	"gml_featureid"     "ogc_fid"	
+  END
+  TYPE POLYGON
+  STATUS ON
+  CONNECTIONTYPE OGR
+  CONNECTION "demo.sqlite"
+  DATA "marine_region_poly"
+  PROJECTION
+    "init=epsg:4326"
+  END
+  LABELITEM "name"
+  CLASS
+    NAME "Ocean Labels"
+    LABEL
+      COLOR  75 75 75
+      FONT sans-italic
+      TYPE truetype
+      SIZE 5
+      POSITION AUTO      
+      PARTIALS FALSE
+      BUFFER 5
+    END
+    #MAXSCALEDENOM 50000000
+  END
+  TEMPLATE "ttt.html"  
+END # layer
+
+/* Places */
+LAYER
+  NAME "places"
+  METADATA
+    "wms_title" "Populated Places"
+    "wms_include_items" "all"
+	"gml_include_items" "all"
+	"gml_featureid"     "ogc_fid"	
+  END
+  TYPE POINT
+  STATUS ON
+  CONNECTIONTYPE OGR
+  CONNECTION "demo.sqlite"
+  DATA "places"
+  PROJECTION
+    "init=epsg:4326"
+  END
+  LABELITEM "name"
+  CLASS
+    NAME "Populated Places"
+    SYMBOL "square"
+    SIZE 4
+    COLOR 150 150 150
+    LABEL
+      COLOR  75 75 75
+      FONT sans
+      TYPE truetype
+      SIZE 5
+      POSITION AUTO      
+      PARTIALS FALSE
+      BUFFER 5
+    END
+    MAXSCALEDENOM 50000000
+  END
+  TEMPLATE "ttt.html"  
+END # layer
+
+END # Map File

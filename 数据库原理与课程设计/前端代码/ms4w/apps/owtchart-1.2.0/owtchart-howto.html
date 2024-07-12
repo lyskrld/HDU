@@ -1,0 +1,292 @@
+<HTML>
+<HEAD>
+   <TITLE>OWTChart Engine - Usage Information</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<CENTER>
+<H1>OWTChart Engine</H1>
+<P>
+<H2>How to use OWTChart</H2>
+</CENTER>
+<P>
+<HR WIDTH=50%>
+<P>
+<H3><A NAME="CGI">1. Using OWTChart as a CGI application</A></H3>
+
+<H4>
+1.1 Installation</H4>
+To use OWTChart as a CGI application, simply copy the "owtchart" executable
+to the "cgi-bin" directory (or any other directory that allows CGI program
+execution), and include a URL that refers to it in your web pages.&nbsp;
+(There are no more installation steps!!!)
+<P>This allows you to generate charts from either static HTML pages, or
+from any web development environment, such as PHP (<A HREF="http://www.php.net/">http://www.php.net/</A>),
+or from shell or perl CGI scripts, etc.
+<BR>&nbsp;
+<H4>
+1.2 Building a chart URL</H4>
+<I>Note: If you are not familiar with CGI scripts and URLs, it might be
+a good idea to take some time to learn about them since this document is
+not intended to be a web site development tutorial.</I>
+<P>To produce a chart, you build a URL using the "owtchart" CGI path, and
+you add chart parameters in the QUERY_STIRNG part of the URL. See section
+5 (below) for the list of chart parameters.
+<P>OK, this probably was not very clear... the best way to learn how to
+use the OWTChart engine is probably to look at some examples.
+<P><I>The following examples assume that the "owtchart" application is
+installed and is accessible at the URL "http://www.host.addr/cgi-bin/owtchart".</I>
+<P>Let's start with a simple line chart:
+<CENTER>
+<P><IMG SRC="owtchart_ex1.gif" HEIGHT=200 WIDTH=300></CENTER>
+
+<BLOCKQUOTE><TT>http://www.host.addr/cgi-bin/owtchart?Type=Line&amp;W=300&amp;H=200&amp;NumSets=1&amp;NumPts=5&amp;Vals=2!5!4!7!5</TT></BLOCKQUOTE>
+And add a Title and labels along the X axis:
+<CENTER>
+<P><IMG SRC="owtchart_ex2.gif" HEIGHT=200 WIDTH=300></CENTER>
+
+<BLOCKQUOTE><TT>http://www.host.addr/cgi-bin/owtchart?Type=Line&amp;W=300&amp;H=200&amp;NumSets=1&amp;NumPts=5&amp;Vals=2!5!4!7!5&amp;Title=Chart+Title&amp;XLabels=A;B;C;D;E</TT></BLOCKQUOTE>
+Now, turn it into a 3D bar chart:
+<CENTER>
+<P><IMG SRC="owtchart_ex3.gif" HEIGHT=200 WIDTH=300></CENTER>
+
+<BLOCKQUOTE><TT>http://www.host.addr/cgi-bin/owtchart?Type=3DBar&amp;W=300&amp;H=200&amp;NumSets=1&amp;NumPts=5&amp;Vals=2!5!4!7!5&amp;Title=Chart+Title&amp;XLabels=A;B;C;D;E</TT></BLOCKQUOTE>
+And finally, add 1more set of bars, drawn in red, besides each other:
+<CENTER>
+<P><IMG SRC="owtchart_ex4.gif" HEIGHT=200 WIDTH=300></CENTER>
+
+<BLOCKQUOTE><TT>http://www.host.addr/cgi-bin/owtchart?Type=3DBar&amp;W=300&amp;H=200&amp;NumSets=2&amp;NumPts=5&amp;Vals=2!5!4!7!5!1!4!3!3!4&amp;Title=Chart+Title&amp;XLabels=A;B;C;D;E&amp;SetColors=0000FF!FF0000&amp;StackType=Beside</TT></BLOCKQUOTE>
+
+<H4>
+1.3 Notes about building URLs</H4>
+When building a chart URL manually, it is very important to remember that
+a URL can only contain alphanumeric characters plus a couple of others
+like "!", "_", ".", ....
+<P>Any other character must be escaped, the most frequent case is spaces
+that have to be converted to "+" characters, see RFC2396 for more details
+on the escaping of URLs.
+<P>Malformed URLs may work on some systems, but may not on others... it
+really depends on the HTTP server you are running, it has nothing to do
+with the OWT chart engine itself.
+<BR>&nbsp;
+<BR>&nbsp;
+
+<H3><A NAME="COMMANDLINE">2. Using OWTChart as a command-line application</A></H3>
+The same OWTChart executable can also be used as a comand-line application.&nbsp;
+In this case, it reads the set of chart options from a text file, and the
+output goes to a file.&nbsp; The output can optionally be sent to standard
+output.
+<BR>&nbsp;
+<UL><TT>Usage:&nbsp; owtchart &lt;param_file.txt> &lt;out_file.gif></TT>
+<BR>&nbsp;
+<LI>
+<TT>&lt;param_file.txt>: </TT>the name of the text file that contains the
+chart parameters (see below)</LI>
+
+<LI>
+<TT>&lt;out_file.gif>: </TT>the name of the GIF file to create.&nbsp; Passing
+a value of "-" will send the GIF to stdout.</LI>
+</UL>
+The program returns a status of 0 on success, or non-zero if an error happened.
+<BR>&nbsp;
+<H4>
+2.1 Chart parameters file</H4>
+The text file with the chart parameters that is used as input contains
+1 line for each parameter value, as they would appear inside a URL, except
+that the values should not be escaped as they would be inside a URL.&nbsp;
+See section 5 below for the list of chart parameters.
+<P>Let's reuse the examples from section 3.2 above and look at the input
+files that would produce the same charts:
+<P>A simple line chart:
+<BLOCKQUOTE><TT>Type=Line</TT>
+<BR><TT>W=300</TT>
+<BR><TT>H=200</TT>
+<BR><TT>NumSets=1</TT>
+<BR><TT>NumPts=5</TT>
+<BR><TT>Vals=2!5!4!7!5</TT></BLOCKQUOTE>
+Add a Title and labels along the X axis:
+<BLOCKQUOTE><TT>Type=Line</TT>
+<BR><TT>W=300</TT>
+<BR><TT>H=200</TT>
+<BR><TT>NumSets=1</TT>
+<BR><TT>NumPts=5</TT>
+<BR><TT>Vals=2!5!4!7!5</TT>
+<BR><TT>Title=Chart Title</TT>
+<BR><TT>XLabels=A;B;C;D;E</TT></BLOCKQUOTE>
+Turn it into a 3D bar chart:
+<BLOCKQUOTE><TT>Type=3DBar</TT>
+<BR><TT>W=300</TT>
+<BR><TT>H=200</TT>
+<BR><TT>NumSets=1</TT>
+<BR><TT>NumPts=5</TT>
+<BR><TT>Vals=2!5!4!7!5</TT>
+<BR><TT>Title=Chart Title</TT>
+<BR><TT>XLabels=A;B;C;D;E</TT></BLOCKQUOTE>
+Add 1 more set of bars, drawn in red, besides each other:
+<BLOCKQUOTE><TT>Type=3DBar</TT>
+<BR><TT>W=300</TT>
+<BR><TT>H=200</TT>
+<BR><TT>NumSets=2</TT>
+<BR><TT>NumPts=5</TT>
+<BR><TT>Vals=2!5!4!7!5!1!4!3!3!4</TT>
+<BR><TT>Title=Chart Title</TT>
+<BR><TT>XLabels=A;B;C;D;E</TT>
+<BR><TT>SetColors=0000FF!FF0000</TT>
+<BR><TT>StackType=Beside</TT></BLOCKQUOTE>
+
+<H3><A NAME="toc">3. Chart Parameters</A></H3>
+<P>Note: Parameter Names and Values are not case sensitive.<BR>
+</P>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+        <TR VALIGN="TOP">
+          <TD>
+            <UL>
+				      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><B>Required Parameters</B>
+          </FONT>
+                <UL>
+                  <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#Type">Chart Type</A> (TYPE)</FONT></LI>
+                  <LI><A HREF="owtchart-paramlist.html#Vals"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">Values</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (VALS)</FONT></LI>
+                  <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#NumPts">Number of Points</A> (NumPts)</FONT></LI>
+                </UL>
+              </LI>
+              <FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><BR>
+        </FONT>
+              <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><B>Optional Parameters</B>
+          </FONT>
+                <UL>
+                  <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><B>General Chart Options</B></FONT>
+                    <UL>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#W">Chart Width</A> (W)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#H">Chart Height</A> (H)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#BGCol">Background Colour</A> (BGColor)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#TransBG">Transparent Background</A> (TransBG)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#Line">Line Colour</A> (LineColour)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#Grid">Toggle Grid</A> (Grid)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#GridColor">Grid Colour</A> (GridColor)</FONT></LI>
+                    </UL>
+                  </LI>
+                  <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><B>3D Options</B></FONT>
+                    <UL>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#3DDepth">3D Depth</A> (3DDepth)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#3DAngle">3D Angle</A> (3DAngle)</FONT></LI>
+                    </UL>
+                  </LI>
+                  <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><B>Value Colours</B></FONT>
+                    <UL>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#Plot">Plot Colour</A> (PlotColor)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#Set">Set Colours</A> (SetColors)</FONT></LI>
+                      <LI><A HREF="owtchart-paramlist.html#Ext"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">Extended Colours</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (ExtColors)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#Vol">Volume Colours</A> (VolColors)</FONT></LI>
+                    </UL>
+                  </LI>
+                  <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><B>Chart Title Options</B></FONT>
+                    <UL>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#Title">Chart Title</A> (Title)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#RTitle">Right Subtitle</A> (RTitle)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#LTitle">Left Subtitle</A> (LTitle)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#TitleColor">Title Colour</A> (TitleColor)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#TitleFont">Title Font Size</A> (TitleFont)</FONT></LI>
+                    </UL>
+                  </LI>
+                  <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><B>X-Axis Options</B></FONT>
+                    <UL>
+                      <LI><A HREF="owtchart-paramlist.html#XAxis"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">X-Axis Toggle</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (XAxis) </FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#XTitle">X-Axis Title</A> (XTitle)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#XTitleFont">X-Axis Title Font Size</A> (XTitleFont)</FONT></LI>
+                      <LI><A HREF="owtchart-paramlist.html#XTitleColor"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">X-Axis Title Colour</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (XTitleColor)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#XLab">X-Axis Labels</A> (XLabels)</FONT></LI>
+                      <LI><A HREF="owtchart-paramlist.html#XLabelFont"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">X-Axis Label Font Size</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (XLabelFont)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#XLabelColor">X-Axis Label Colour </A>(XLabelColor)</FONT></LI>
+                    </UL>
+                  </LI>
+                </UL>
+              </LI>
+            </UL>
+          </TD>
+          <TD>
+            <UL>
+              <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><B>Optional Parameters</B></FONT>
+                <UL>
+                  <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><B>Y-Axis Options</B></FONT>
+                    <UL>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#YAxis">Y-Axis Toggle</A> (YAxis)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#YScaleType">Y-Axis Scale Type</A> (YScaleType)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#YMin">Y-Axis Minimum Value</A> (YMin)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#YMax">Y-Axis Maximum Value</A> (YMax)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#YInterval">Y-Axis Interval</A> (YInterval)</FONT></LI>
+                      <LI><A HREF="owtchart-paramlist.html#YTitle"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">Y-Axis Title</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (YTitle)</FONT></LI>
+                      <LI><A HREF="owtchart-paramlist.html#YTitleFont"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">Y-Axis Title Font Size</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (YTitleFont)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#YTitleColor">Y-Axis Title Colour</A> (YTitleColor)</FONT></LI>
+                      <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#YLabelFont">Y-Axis Label Font Size</A> (YLabelFont)</FONT></LI>
+                      <LI><A HREF="owtchart-paramlist.html#YLabelColor"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">Y-Axis Label Colour</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (YLabelColor)</FONT></LI>
+                      <LI><A HREF="owtchart-paramlist.html#YAxis2"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">COMBO Chart Y-Axis Toggle</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (YAxis2)</FONT></LI>
+                      <LI><A HREF="owtchart-paramlist.html#YMin2"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">COMBO Chart Y-Axis Minimum Value</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (YMin2)</FONT></LI>
+                      <LI><A HREF="owtchart-paramlist.html#YMax2"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">COMBO Chart Y-Axis Maximum Value</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (YMax2)</FONT></LI>
+                      <LI><A HREF="owtchart-paramlist.html#YTit2"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">COMBO Chart Y-Axis Title</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (Title2)</FONT></LI>
+                      <LI><A HREF="owtchart-paramlist.html#YTitle2Color"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">COMBO Chart Y-Axis Title Colour</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (YTitle2Color)</FONT></LI>
+                      <LI><A HREF="owtchart-paramlist.html#YLabel2Color"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">COMBO Chart Y-Axis Label Colour</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (YLabel2Color)</FONT></LI>
+                    </UL>
+                  </LI>
+                </UL>
+              </LI>
+              <UL>
+                <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><B>Pie Chart Specific Options</B></FONT>
+                  <UL>
+                    <LI><A HREF="owtchart-paramlist.html#PiePctType"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">Position of Percentage Labels</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (PiePctType)</FONT></LI>
+                    <LI><A HREF="owtchart-paramlist.html#PieRadius"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">Pie Radius</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (PieRadius)</FONT></LI>
+                    <LI><A HREF="owtchart-paramlist.html#PieLabelFont"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">Pie Label Font Size</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (PieLabelFont)</FONT></LI>
+                  </UL>
+                </LI>
+                <LI><FONT SIZE="2" FACE="Arial, Helvetica, sans-serif"><B>Bar Chart Specific Options</B></FONT>
+                  <UL>
+                    <LI><A HREF="owtchart-paramlist.html#StackType"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">Stack Type</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (StackType)</FONT></LI>
+                    <LI><A HREF="owtchart-paramlist.html#BarWidth"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">Bar Width</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (BarWidth)</FONT></LI>
+                    <LI><A HREF="owtchart-paramlist.html#BarLabels"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">Bar Labels Toggle</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (BarLabels)</FONT></LI>
+                    <LI><A HREF="owtchart-paramlist.html#BarLabelFmt"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">Bar Label Format</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (BarLabelFmt)</FONT></LI>
+                  </UL>
+                </LI>
+                <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><B>Line Chart Specific Options</B></FONT>
+                  <UL>
+                    <LI><A HREF="owtchart-paramlist.html#LineStyles"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">Line Styles</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (LineStyles)</FONT></LI>
+                  </UL>
+                </LI>
+                <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><B>HLC (Hi-Lo-Close) Chart Specific Options</B></FONT>
+                  <UL>
+                    <LI><A HREF="owtchart-paramlist.html#HLCStyle"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">Hi-Lo-Close Style</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (HLCStyle)</FONT></LI>
+                    <LI><A HREF="owtchart-paramlist.html#HLCCapWidth"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">Hi-Lo-Close Cap Width</FONT></A><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"> (HLCCapWidth)</FONT></LI>
+                  </UL>
+                </LI>
+                <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><B>H2Bar Chart Specific Options</B></FONT>
+                  <UL>
+                    <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">See <A HREF="owtchart-paramlist.html#RTitle">RTitle</A> and <A HREF="owtchart-paramlist.html#LTitle">LTitle</A> in Chart Title Options</FONT></LI>
+                  </UL>
+                </LI>
+                <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><B>COMBO Chart Specific Options</B></FONT>
+                  <UL>
+                    <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2">See <A HREF="owtchart-paramlist.html#YAxis2">YAxis2</A>, <A HREF="owtchart-paramlist.html#YMin2">YMin2</A>, <A HREF="owtchart-paramlist.html#YMax2">YMax2</A>, <A HREF="owtchart-paramlist.html#YTit2">YTitle2</A>, <A HREF="owtchart-paramlist.html#YTitle2Color">YTitle2Color</A>, <A HREF="owtchart-paramlist.html#YLabel2Color">YLabel2Color</A> in Y-Axis Options</FONT></LI>
+                  </UL>
+                </LI>
+                <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><B>Multi-Set Chart Specific Options</B></FONT>
+                  <UL>
+                    <LI><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><A HREF="owtchart-paramlist.html#NumSets">Number of Data Sets</A> (NumSets)</FONT></LI>
+                  </UL>
+                </LI>
+              </UL>
+            </UL>
+          </TD>
+        </TR>
+     </TABLE>
+<P>
+<HR WIDTH=50%>
+<CENTER>
+<A HREF="owtchart.html">OWTChart Home</A> |
+<A HREF="owtchart-copyright.html">Copyright</A> |
+<A HREF="owtchart-howto.html">Usage Information</A>
+</CENTER>
+<HR WIDTH=50%>Last update: October 14, 2003
+<ADDRESS>
+Daniel Morissette, <A HREF="mailto:dmorissette@mapgears.com">dmorissette@mapgears.com</A></ADDRESS>
+
+<!-- $Id: owtchart-howto.html,v 1.8 2003/10/14 18:14:20 daniel Exp $ -->
+</BODY>
+</HTML>

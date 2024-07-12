@@ -1,0 +1,12 @@
+**Note: the following steps are required only for those who didn't use the installer "ms4w-xxx-setup.exe"
+        (if you used the file "ms4w_xxx.zip" instead, you are required to do the following steps)
+
+- must first install the package "Microsoft Visual C++ Redistributable for Visual Studio 2017":
+      
+    - use the file "vc_redist.x86.exe" located in the folder: /ms4w/tmp/
+    
+    - or download from https://support.microsoft.com/en-ca/help/2977003/the-latest-supported-visual-c-downloads
+        
+        - use the x86 installer ("vc_redist.x86.exe")
+        
+       

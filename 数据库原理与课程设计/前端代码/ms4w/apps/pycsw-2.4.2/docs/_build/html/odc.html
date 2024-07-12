@@ -1,0 +1,171 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Open Data Catalog Configuration &#8212; pycsw 2.4.2 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="CKAN Configuration" href="ckan.html" />
+    <link rel="prev" title="HHypermap Configuration" href="hhypermap.html" />
+ 
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32855587-1']);
+  _gaq.push(['_setDomainName', 'pycsw.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  </head><body>
+
+<style type="text/css">
+  .header a:link{color: white;}
+  .header a:visited{color: white;}
+  .padded{padding: 10px 10px;}
+</style>
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="ckan.html" title="CKAN Configuration"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="hhypermap.html" title="HHypermap Configuration"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pycsw 2.4.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="open-data-catalog-configuration">
+<span id="odc"></span><h1>Open Data Catalog Configuration<a class="headerlink" href="#open-data-catalog-configuration" title="Permalink to this headline">¶</a></h1>
+<p>Open Data Catalog (<a class="reference external" href="https://github.com/azavea/Open-Data-Catalog/">https://github.com/azavea/Open-Data-Catalog/</a>) is an open data catalog based on Django, Python and PostgreSQL. It was originally developed for OpenDataPhilly.org, a portal that provides access to open data sets, applications, and APIs related to the Philadelphia region. The Open Data Catalog is a generalized version of the original source code with a simple skin. It is intended to display information and links to publicly available data in an easily searchable format. The code also includes options for data owners to submit data for consideration and for registered public users to nominate a type of data they would like to see openly available to the public.</p>
+<p>pycsw supports binding to an existing Open Data Catalog repository for metadata query.  The binding is read-only (transactions are not in scope, as Open Data Catalog manages repository metadata changes in the application proper).</p>
+<div class="section" id="open-data-catalog-setup">
+<h2>Open Data Catalog Setup<a class="headerlink" href="#open-data-catalog-setup" title="Permalink to this headline">¶</a></h2>
+<p>Open Data Catalog provides CSW functionality using pycsw out of the box (installing ODC will also install pycsw).  Settings are defined in <a class="reference external" href="https://github.com/azavea/Open-Data-Catalog/blob/master/OpenDataCatalog/settings.py#L165">https://github.com/azavea/Open-Data-Catalog/blob/master/OpenDataCatalog/settings.py#L165</a>.</p>
+<p>ODC settings must ensure that <code class="docutils literal notranslate"><span class="pre">REGISTRY_PYCSW['repository']['source']</span></code> is set to``hypermap.search.pycsw_repository``.</p>
+<p>At this point, pycsw is able to read from the Open Data Catalog repository using the Django ORM.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Open Data Catalog Configuration</a><ul>
+<li><a class="reference internal" href="#open-data-catalog-setup">Open Data Catalog Setup</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="hhypermap.html"
+                        title="previous chapter">HHypermap Configuration</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ckan.html"
+                        title="next chapter">CKAN Configuration</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/odc.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div><p>
+    <img style="background: white;" alt="pycsw" src="https://raw.githubusercontent.com/geopython/pycsw/master/docs/_static/logo/logo-horizontal.png" height="75" />
+</p>
+
+<p>
+    <a title="This product conforms to the OpenGIS Catalogue Service Implementation Specification [Catalogue Service for the Web], Revision 3.0.0. OGC, OGC®, and CERTIFIED OGC COMPLIANT are trademarks or registered trademarks of the Open Geospatial Consortium, Inc. in the United States and other countries." href="http://www.opengeospatial.org/resource/products/details/?pid=1374"><img alt="This product conforms to the OpenGIS Catalogue Service Implementation Specification [Catalogue Service for the Web], Revision 3.0.0. OGC, OGC®, and CERTIFIED OGC COMPLIANT are trademarks or registered trademarks of the Open Geospatial Consortium, Inc. in the United States and other countries." src="https://portal.opengeospatial.org/public_ogc/compliance/Certified_OGC_Compliant_Logo_Web.gif" height="74"/></a>
+</p>
+
+<p>
+    <a title="This product conforms to the OpenGIS Catalogue Service Implementation Specification [Catalogue Service for the Web], Revision 3.0.0. OGC, OGC®, and CERTIFIED OGC COMPLIANT are trademarks or registered trademarks of the Open Geospatial Consortium, Inc. in the United States and other countries." href="http://www.opengeospatial.org/resource/products/details/?pid=1374"><img alt="This product conforms to the OpenGIS Catalogue Service Implementation Specification [Catalogue Service for the Web], Revision 3.0.0. OGC, OGC®, and CERTIFIED OGC COMPLIANT are trademarks or registered trademarks of the Open Geospatial Consortium, Inc. in the United States and other countries." src="https://portal.opengeospatial.org/public_ogc/compliance/badge.php?s=CAT%20CSW%203.0.0&r=1" height="38"/></a>
+</p>
+
+<p>
+    <a title="This product conforms to the OpenGIS Catalogue Service Implementation Specification [Catalogue Service for the Web], Revision 2.0.2. OGC, OGC®, and CERTIFIED OGC COMPLIANT are trademarks or registered trademarks of the Open Geospatial Consortium, Inc. in the United States and other countries." href="http://www.opengeospatial.org/resource/products/details/?pid=1374"><img alt="This product conforms to the OpenGIS Catalogue Service Implementation Specification [Catalogue Service for the Web], Revision 2.0.2. OGC, OGC®, and CERTIFIED OGC COMPLIANT are trademarks or registered trademarks of the Open Geospatial Consortium, Inc. in the United States and other countries." src="https://portal.opengeospatial.org/public_ogc/compliance/badge.php?s=CAT%20CSW%202.0.2&r=1" height="38"/></a>
+</p>
+
+<p>
+    <img style="background: white;" alt="OSGeo Project" src="https://raw.githubusercontent.com/OSGeo/osgeo/master/incubation/project/OSGeo_project.png" height="64"/>
+</p>
+
+<p>
+    <script type="text/javascript" src="https://www.openhub.net/p/488022/widgets/project_thin_badge.js"></script> 
+</p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="ckan.html" title="CKAN Configuration"
+             >next</a></li>
+        <li class="right" >
+          <a href="hhypermap.html" title="HHypermap Configuration"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pycsw 2.4.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+
+<div class="footer">
+    <p>&copy; Copyright 2010-2015, Tom Kralidis This work is licensed under a Creative Commons Attribution 4.0 International License<br/>Last updated on 2020-01-17T15:22:50Z</p>
+    <p>
+        <a href="https://pycsw.org">Website</a> &mdash;
+        <a href="https://pycsw.org/community">Community</a> &mdash;
+        <a href="https://pycsw.org/blog">Blog</a> &mdash;
+        <a href="https://plus.google.com/communities/104084873011085696113">Google+</a> &mdash;
+        <a href="https://pycsw.org/download">Download</a> &mdash;
+        <a href="https://github.com/geopython/pycsw">Source</a> &mdash;
+        <a href="https://github.com/geopython/pycsw/issues">Issues</a> &mdash;
+        <a href="http://lists.osgeo.org/mailman/listinfo/pycsw-devel">Mailing List</a>
+    </p>
+</div>
+
+  </body>
+</html>

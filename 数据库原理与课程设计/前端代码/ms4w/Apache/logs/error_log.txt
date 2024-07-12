@@ -1,0 +1,48 @@
+[Sun Jun 16 19:10:46.192704 2024] [mpm_winnt:notice] [pid 27132:tid 760] AH00455: Apache/2.4.41 (Win32) mod_fcgid/2.3.9 mod-mapcache/1.9dev mod_wsgi/4.6.8 Python/3.7 configured -- resuming normal operations
+[Sun Jun 16 19:10:46.192704 2024] [mpm_winnt:notice] [pid 27132:tid 760] AH00456: Server built: Dec 17 2019 12:39:16
+[Sun Jun 16 19:10:46.192704 2024] [core:notice] [pid 27132:tid 760] AH00094: Command line: 'D:\\ms4w\\Apache\\bin\\httpd.exe -d D:/ms4w/Apache'
+[Sun Jun 16 19:10:46.196696 2024] [mpm_winnt:notice] [pid 27132:tid 760] AH00418: Parent: Created child process 38100
+[Sun Jun 16 19:10:46.709699 2024] [mpm_winnt:notice] [pid 38100:tid 776] AH00354: Child: Starting 64 worker threads.
+The 'Apache MS4W Web Server' service is restarting.
+The 'Apache MS4W Web Server' service has restarted.
+ [pid 27132:tid 760] AH00424: Parent: Received restart signal -- Restarting the server.
+[Sun Jun 16 19:14:46.399813 2024] [mpm_winnt:notice] [pid 27132:tid 760] AH00455: Apache/2.4.41 (Win32) mod_fcgid/2.3.9 mod-mapcache/1.9dev mod_wsgi/4.6.8 Python/3.7 configured -- resuming normal operations
+[Sun Jun 16 19:14:46.399813 2024] [mpm_winnt:notice] [pid 27132:tid 760] AH00456: Server built: Dec 17 2019 12:39:16
+[Sun Jun 16 19:14:46.400815 2024] [core:notice] [pid 27132:tid 760] AH00094: Command line: 'D:\\ms4w\\Apache\\bin\\httpd.exe -d D:/ms4w/Apache'
+[Sun Jun 16 19:14:46.403820 2024] [mpm_winnt:notice] [pid 27132:tid 760] AH00418: Parent: Created child process 40788
+[Sun Jun 16 19:14:47.074365 2024] [mpm_winnt:notice] [pid 40788:tid 812] AH00354: Child: Starting 64 worker threads.
+[Sun Jun 16 19:14:48.085824 2024] [mpm_winnt:notice] [pid 38100:tid 776] AH00364: Child: All worker threads have exited.
+The 'Apache MS4W Web Server' service is restarting.
+The 'Apache MS4W Web Server' service has restarted.
+ [pid 27132:tid 760] AH00424: Parent: Received restart signal -- Restarting the server.
+[Sun Jun 16 19:21:30.901597 2024] [mpm_winnt:notice] [pid 27132:tid 760] AH00455: Apache/2.4.41 (Win32) mod_fcgid/2.3.9 mod-mapcache/1.9dev mod_wsgi/4.6.8 Python/3.7 configured -- resuming normal operations
+[Sun Jun 16 19:21:30.901597 2024] [mpm_winnt:notice] [pid 27132:tid 760] AH00456: Server built: Dec 17 2019 12:39:16
+[Sun Jun 16 19:21:30.901597 2024] [core:notice] [pid 27132:tid 760] AH00094: Command line: 'D:\\ms4w\\Apache\\bin\\httpd.exe -d D:/ms4w/Apache'
+[Sun Jun 16 19:21:30.904565 2024] [mpm_winnt:notice] [pid 27132:tid 760] AH00418: Parent: Created child process 41092
+[Sun Jun 16 19:21:31.770235 2024] [mpm_winnt:notice] [pid 41092:tid 840] AH00354: Child: Starting 64 worker threads.
+[Sun Jun 16 19:21:32.773791 2024] [mpm_winnt:notice] [pid 40788:tid 812] AH00364: Child: All worker threads have exited.
+[Tue Jun 18 21:00:58.511474 2024] [core:warn] [pid 64128:tid 512] AH00098: pid file D:/ms4w/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Tue Jun 18 21:00:58.515453 2024] [mpm_winnt:notice] [pid 64128:tid 512] AH00455: Apache/2.4.41 (Win32) mod_fcgid/2.3.9 mod-mapcache/1.9dev mod_wsgi/4.6.8 Python/3.7 configured -- resuming normal operations
+[Tue Jun 18 21:00:58.515985 2024] [mpm_winnt:notice] [pid 64128:tid 512] AH00456: Server built: Dec 17 2019 12:39:16
+[Tue Jun 18 21:00:58.515985 2024] [core:notice] [pid 64128:tid 512] AH00094: Command line: 'D:\\ms4w\\Apache\\bin\\httpd.exe -d D:/ms4w/Apache'
+[Tue Jun 18 21:00:58.521687 2024] [mpm_winnt:notice] [pid 64128:tid 512] AH00418: Parent: Created child process 27688
+[Tue Jun 18 21:01:00.021116 2024] [mpm_winnt:notice] [pid 27688:tid 844] AH00354: Child: Starting 64 worker threads.
+[Tue Jun 18 21:01:11.234316 2024] [mpm_winnt:notice] [pid 64128:tid 512] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Tue Jun 18 21:01:13.260282 2024] [mpm_winnt:notice] [pid 27688:tid 844] AH00364: Child: All worker threads have exited.
+[Tue Jun 18 21:01:13.704372 2024] [mpm_winnt:notice] [pid 64128:tid 512] AH00430: Parent: Child process 27688 exited successfully.
+[Tue Jun 18 21:01:26.710528 2024] [mpm_winnt:notice] [pid 47740:tid 768] AH00455: Apache/2.4.41 (Win32) mod_fcgid/2.3.9 mod-mapcache/1.9dev mod_wsgi/4.6.8 Python/3.7 configured -- resuming normal operations
+[Tue Jun 18 21:01:26.710528 2024] [mpm_winnt:notice] [pid 47740:tid 768] AH00456: Server built: Dec 17 2019 12:39:16
+[Tue Jun 18 21:01:26.710528 2024] [core:notice] [pid 47740:tid 768] AH00094: Command line: 'D:\\ms4w\\Apache\\bin\\httpd.exe -d D:/ms4w/Apache'
+[Tue Jun 18 21:01:26.715214 2024] [mpm_winnt:notice] [pid 47740:tid 768] AH00418: Parent: Created child process 48908
+[Tue Jun 18 21:01:27.315500 2024] [mpm_winnt:notice] [pid 48908:tid 828] AH00354: Child: Starting 64 worker threads.
+[Wed Jun 19 13:26:23.331811 2024] [mpm_winnt:notice] [pid 47740:tid 768] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Wed Jun 19 13:26:25.360804 2024] [mpm_winnt:notice] [pid 48908:tid 828] AH00364: Child: All worker threads have exited.
+[Wed Jun 19 13:26:25.803937 2024] [mpm_winnt:notice] [pid 47740:tid 768] AH00430: Parent: Child process 48908 exited successfully.
+[Wed Jun 19 13:26:45.287245 2024] [mpm_winnt:notice] [pid 63720:tid 780] AH00455: Apache/2.4.41 (Win32) mod_fcgid/2.3.9 mod-mapcache/1.9dev mod_wsgi/4.6.8 Python/3.7 configured -- resuming normal operations
+[Wed Jun 19 13:26:45.287245 2024] [mpm_winnt:notice] [pid 63720:tid 780] AH00456: Server built: Dec 17 2019 12:39:16
+[Wed Jun 19 13:26:45.287245 2024] [core:notice] [pid 63720:tid 780] AH00094: Command line: 'D:\\ms4w\\Apache\\bin\\httpd.exe -d D:/ms4w/Apache'
+[Wed Jun 19 13:26:45.292295 2024] [mpm_winnt:notice] [pid 63720:tid 780] AH00418: Parent: Created child process 59660
+[Wed Jun 19 13:26:46.124878 2024] [mpm_winnt:notice] [pid 59660:tid 796] AH00354: Child: Starting 64 worker threads.
+[Wed Jun 19 14:11:39.076441 2024] [mpm_winnt:notice] [pid 63720:tid 780] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Wed Jun 19 14:11:41.091516 2024] [mpm_winnt:notice] [pid 59660:tid 796] AH00364: Child: All worker threads have exited.
+[Wed Jun 19 14:11:41.525208 2024] [mpm_winnt:notice] [pid 63720:tid 780] AH00430: Parent: Child process 59660 exited successfully.

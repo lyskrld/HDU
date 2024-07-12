@@ -1,0 +1,152 @@
+<html>
+<head>
+<title>MS4W - MapServer for Windows</title>
+<style type="text/css">
+<!--
+body {  font-family: Arial, Helvetica, sans-serif; font-size: 12px} -->
+</style>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF">
+<h1>MS4W - MapServer for Windows - version 4.0.3</h1>
+developed by: <a href="https://gatewaygeomatics.com" target="_blank"><img src="images/gatewaygeomatics-logo-small.jpg" border="0" alt="Developed by Gateway Geomatics"/></a>
+<h2>Introduction</h2>
+<p>Welcome to MS4W v4.0.3, the MapServer package for Windows, developed by <a href="https://gatewaygeomatics.com" target="_blank">Gateway Geomatics</a>. 
+MS4W is designed to get you up and running with <a href="https://mapserver.org" target="_blank">MapServer</a> with very little
+configuration.</p>
+<p>There are some important notes about MS4W:</p>
+<ul>
+  <li>Pre-configured addon packages for MS4W can be downloaded from the 
+     <a href="https://ms4w.com/release/apps/" target="_blank">MS4W Downloads</a>
+     page.</li>
+</ul>
+<h2>Documentation</h2>
+<p>Please view your local <a href="/README_INSTALL.html" target="_blank">README file</a> for full documentation
+about your MS4W package.</p>
+<h2>Local Test Map</h2>
+<iframe name="Local test map" width="600" height="400" frameborder="0" scrolling="no" src="/cgi-bin/mapserv.exe?map=/ms4w/apps/local-demo/local.map&MODE=browse&TEMPLATE=openlayers&LAYERS=all"></iframe>
+  <li>mapfile at <i>\ms4w\apps\local-demo\local.map</i></li>
+  <li>open map viewer in new <a href="/cgi-bin/mapserv.exe?map=/ms4w/apps/local-demo/local.map&MODE=browse&TEMPLATE=openlayers&LAYERS=all" target="_blank">window</a></li>
+<h2>Features<a name="Features"></a></h2>
+<p>MS4W contains default installations of Apache, PHP, MapServ, MapScript
+  and some sample applications. It is structured in such a way as to allow
+  upgrading individual components without affecting the install.
+  The base installer package comes pre-configured with the following software:</p>
+<ul>
+  <li><a href="http://httpd.apache.org/docs/2.4/" target="_blank">Apache 2.4.41</a></li>
+  <li>PHP 7.2.27</li>
+  <li>GDAL 2.4.4</li>
+  <li>Python 3.7.5</li>
+  <li>MapServer CGI 7.6.0-dev at <a href="/cgi-bin/mapserv.exe" target="_blank">/cgi-bin/mapserv.exe</a></li>
+  <li>MapScript 7.6.0-dev flavours:</li>
+    <ul>
+     <li>php_mapscript.dll at <i>\ms4w\Apache\php\ext</i></li>
+     <li>CSharp mapscript at <i>\ms4w\msplugins\mapscript\csharp</i></li>
+     <li>Java mapscript at <i>\ms4w\msplugins\mapscript\java</i></li>
+     <li>Python mapscript at <i>\ms4w\msplugins\mapscript\python</i></li>     
+    </ul>
+  <li>Commandline Utilities</li>
+  <ul>
+    <li>execute <b>\ms4w\setenv.bat</b> to use the utilities</li> 
+    <li><a href="https://mapserver.org/utilities/" target="_blank">MapServer Utilities</a></li>
+    <ul>
+      <li>physically located at <i>\ms4w\tools\mapserv\</i></li>
+    </ul>
+    <li><a href="https://gdal.org/programs/index.html#raster-programs" target="_blank">GDAL</a>/<a href="https://gdal.org/programs/index.html#vector-programs" target="_blank">OGR</a> Utilities</li>
+    <ul>
+      <li>physically located at <i>\ms4w\tools\gdal-ogr\</i></li>
+    </ul> 
+    <li><a href="https://www.gaia-gis.it/fossil/spatialite-tools/index" target="_blank">Spatialite Tools</a> (including <a href="https://www.gaia-gis.it/fossil/spatialite-tools/wiki?name=OSM+tools" target="_blank">OSM Tools</a>)</li>
+    <ul>
+      <li>physically located at <i>\ms4w\tools\spatialite\</i></li>
+    </ul>   
+    <li><a href="https://wiki.openstreetmap.org/wiki/Osm2pgsql" target="_blank">osm2pgsql Utility</a></li>
+    <ul>
+      <li>physically located at <i>\ms4w\tools\osm2pgsql\</i></li>
+    </ul>      
+    <li><a href="https://proj4.org/apps/index.html" target="_blank">PROJ Utilities</a></li>
+    <ul>
+      <li>physically located at <i>\ms4w\proj\bin\</i></li>
+    </ul>  
+    <li><a href="http://shapelib.maptools.org/shapelib-tools.html" target="_blank">Shapelib Utilities</a></li>
+    <ul>
+      <li>physically located at <i>\ms4w\tools\shapelib\</i></li>
+    </ul> 
+    <li>Shpdiff Utility</li>
+    <ul>
+      <li>physically located at <i>\ms4w\tools\shpdiff\</i></li>
+    </ul>  
+    <li>Shp2tile Utility</li>
+    <ul>
+      <li>physically located at <i>\ms4w\tools\shp2tile\</i></li>
+    </ul>  
+    <li><a href="http://avce00.maptools.org/avce00/avce00.html" target="_blank">AVCE00 Utility</a></li>
+    <ul>
+      <li>physically located at <i>\ms4w\tools\avce00\</i></li>
+    </ul>  
+    <li><a href="http://unxutils.sourceforge.net/" target="_blank">Unix Utils</a></li>
+    <ul>
+      <li>physically located at <i>\ms4w\tools\unixutils\</i></li>
+    </ul>     
+  </ul>
+  <li>OWTChart utility:</li>
+    <ul>
+      <li><a href="/owtchart/owtchart.html" target="_blank">introduction</a></li>
+      <li><a href="/cgi-bin/owtchart.exe" target="_blank">owtchart.exe</a> (sample <a href="/cgi-bin/owtchart.exe?type=3DBar&vals=11!22!55!25!142!74!99!45&numpts=8&extcolors=FF0000!0000FF!008080!FF9900!008000!800080!FFFF00!808080&xlabels=Bar%20One%3BBar%20Two%3BBar%20Three%3BBar%20Four%3BBar%20Five%3BBar%20Six%3BBar%20Seven%3BBar%20Eight&w=400&h=400&Title=Test%20Chart&XTitle=X-Axis%20Title&XTitleColor=&XTitleFont=&YTitle=Y-Axis%20Title&YTitleColor=&YTitleFont=&YMin=&YMax=&BarWidth=" target="_blank">request</a>)</li>
+    </ul>
+  <li>H264 Streaming Module for Apache</li>
+  <li>OGR/PHP extension (see project <a href="https://github.com/dvzgeo/php_ogr" target="_blank">home</a>)</li>
+</ul>
+
+<?php
+// *include* pkg files in the form app_name.pkg.html
+$nApps = 0;
+$szApps = "";
+$szDir = dirname(__FILE__);
+//remove old index.html if possible
+if (is_file( $szDir."/index.html" ))
+{
+    $bResult = @unlink( $szDir."/index.html" );
+    if ($bResult === false)
+    {
+        echo "<p>Note: unable to remove <b>index.html</b>.  Please remove this";
+        echo "file manually ($szDir\\index.html).  You will see this message";
+        echo "until this file is removed.</p>";
+    }
+    else
+    {
+        echo "<p>Note: old index.phtml page sucessfully removed (you will not";
+        echo "see this message again)</p>";
+    }
+}
+if (is_dir($szDir))
+{
+    if ($hDir = opendir($szDir))
+    {
+        while (($szFile = readdir( $hDir )) !== false)
+        {
+            if ( strcasecmp( substr( $szFile, -9 ), ".pkg.html" ) == 0 )
+            {
+                $szApps .= implode( "\n", file( $szDir."/".$szFile ) )."\n";
+                $nApps ++;
+            }
+        }
+        closedir( $hDir );
+    }
+    else
+    {
+        echo "<p>No packages, unable to open $szDir.</p>";
+    }
+}
+else
+{
+    echo "<p>No packages, $szDir is not a directory.</p>";
+}
+?>
+<h2>Applications<a name="Applications"></a></h2>
+<p>There <?php echo ($nApps == 1) ? "is" : "are" ?> currently
+   <?php echo $nApps?> MS4W addon package<?php echo ($nApps == 1) ? "" : "s" ?>
+   installed.
+</p>
+<?php echo $szApps; ?>
+</body>
+</html>

@@ -1,0 +1,16 @@
+- open in browser: http://127.0.0.1/cgi-bin/mapserv.exe?MAP=/ms4w/apps/mvt-demo/demo.map&mode=tile&tilemode=gmap&tile=986+1444+12&layers=all&map.imagetype=mvt
+
+- save result file locally as 'mvtdemo.pbf'
+
+- execute: setenv.bat
+           ogrinfo mvtdemo.pbf
+
+- returns:
+
+	INFO: Open of `mvtdemo.pbf'
+	      using driver `MVT' successful.
+	1: wma
+	2: sna
+	3: lakes (Multi Polygon)
+	4: major_roads (Line String)
+	5: places (Multi Point)

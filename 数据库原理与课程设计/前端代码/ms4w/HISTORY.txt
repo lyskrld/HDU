@@ -1,0 +1,1249 @@
+MS4W Release History
+====================
+
+(see active ticket list on Trac: https://ms4w.com/trac/report/1?sort=milestone&asc=1&page=1 )
+
+2020-01-30 Gateway Geomatics
+  * ms4w version 4.0.3 created. Notable changes are:
+         - upgraded MapServer and MapScript (CSharp, Java, Python, PHP) to today's 7.6.0-dev  
+         - upgraded GDAL to 2.4.4 (trac ticket 249)
+         - upgraded PHP to 7.2.27 security release (trac ticket 252)
+         - upgraded MapCache to git-master-20200127
+         - include latest mapcache.xml.sample
+         - upgraded cURL support to 7.68.0 (security release)
+         - enhanced local.map (default map on homepage) to allow GeoJSON output
+         - rebuilt HDF5 support (to include the HDF5_HL library)
+         - rebuilt HDF4 support
+         - rebuilt NetCDF support, to include HDF4 + HDF5 and set chunk-cache-size
+           (trac ticket 250)
+         - rebuilt php_ogr extension
+         - upgraded PDAL utilities to git-master-20200128
+         - added PDAL_DRIVER_PATH to setenv.bat (trac ticket 246)
+         - upgraded osm2pgsql commandline utility to git-master-20200127
+         - upgraded pycsw to 2.4.2 (trac ticket 253)
+         - upgraded Matomo to 3.13.1 (trac ticket 203)
+         - rebuilt ZOO-Project kernel, base-vector-ops, and GDAL services 
+           (contour, dem, grid, profile, translate, warp)
+         - added ZOO-Project OGR services demo (trac ticket 229)
+
+2019-12-19 Gateway Geomatics
+  * ms4w version 4.0.2 created. Notable changes are:
+         - upgraded MapServer and MapScript (CSharp, Java, Python, PHP) to today's 7.6.0-dev  
+           (fixes msIO_getStdoutBufferBytes() and imageObj getBytes() issues in SWIG mapscript)
+         - upgraded PHP to 7.2.26 security release (trac ticket 244)
+         - upgraded GDAL to 2.4.3 (trac ticket 236)
+         - upgraded Python to 3.7.5
+         - upgraded MapCache to git-master-20191217		 
+         - upgraded to Oracle SDK 19.5.0.0.0		 
+         - upgraded APCu to 5.1.18	
+         - rebuilt php_ogr extension
+         - upgraded SWIG support to git-master-20191206 (trac ticket 209)
+         - upgraded libjpeg-turbo to git-master-20191012
+         - upgraded libTIFF support to 4.1.0 (trac ticket 237)
+         - rebuilt GeoTIFF support
+         - upgraded Expat support to 2.2.9
+         - upgraded Xerces support to 3.2.2
+         - rebuilt HDF4 support
+         - upgraded OpenSSL support to 1.1.1d
+         - upgraded PostgreSQL support to 12.1 with SSL enabled
+         - upgraded GEOS support to 3.8.0 (trac ticket 239)
+         - upgraded SQLite support to 3.30.1
+         - upgraded RT Topology Library support to 1.1.0
+         - added Zstandard compression library git-master-20191211 support (trac ticket 201)
+         - rebuilt ReadOSM support
+         - added RTTOPO (RT Topology) support to SpatiaLite (trac ticket 108)
+         - rebuilt spatialite-tools 
+         - upgraded FITS support to 3.470
+         - upgraded cURL support to 7.67.0
+         - upgraded NetCDF support to 4.7.3 + added commandline utilities (trac ticket 238)
+         - rebuilt LibKML support
+         - rebuilt Poppler support
+         - upgraded HarfBuzz support to 2.6.4
+         - rebuilt Apache HTTP Server
+         - updated cURL certificates bundle
+         - rebuilt mod_fcgid
+         - rebuilt Apache H264 Streaming Module
+         - upgraded php_ogr extension to 1.5.1
+         - upgraded osm2pgsql commandline utility to git-master-20191217
+         - added PDAL commandline utilities (trac ticket 30)
+         - upgraded mod_wsgi to 4.6.8
+         - updated pycsw package to 2.4.1 release (trac ticket 217)
+         - move GDAL Python bindings to /Python/Lib/site-packages/ (trac ticket 231)
+         - regenerated GDAL Python bindings, to include missing gdal_array module (trac ticket 235)
+		   
+2019-08-25 Gateway Geomatics
+  * ms4w version 4.0.1 created. Notable changes are:
+         - upgraded MapServer and MapScript (CSharp, Java, Python, PHP) to today's 7.6.0-dev  
+           (also due to potential XSS vulnerability)
+         - disabled Pixman support in MapServer build, as it prevents Opacity 
+           (trac ticket 218)
+         - upgraded PHP to 7.2.21 (trac ticket 213)
+         - upgraded GDAL to 2.4.2 (trac ticket 195)
+         - upgraded Apache HTTP Server to 2.4.41 (trac ticket 206)         
+         - upgraded MapCache to today's 1.9dev (trac ticket 222)
+         - upgraded OpenSSL support to 1.1.1c (trac ticket 191)
+         - upgraded cURL support to 7.65.1
+         - upgraded NetCDF support to 4.7.0 (trac ticket 193)
+         - upgraded GEOS support to 3.7.2 trac ticket 214)
+         - rebuilt RT Topology Library
+         - upgraded libxml2 support to 2.9.9
+         - upgraded Freetype support to 2.10.1
+         - upgraded PostgreSQL support to 11.4 with SSL enabled (ticket 196)
+         - upgraded HDF5 support to 1.10.5
+         - upgraded SQLite support to 3.28.0
+         - rebuilt SpatiaLite support 
+         - rebuilt spatialite-tools 
+         - upgraded libPNG support to 1.6.37 (trac ticket 221) due to potential vulnerability
+         - upgraded Pixman support to 0.38.4
+         - upgraded Cairo support to 1.16.0
+         - rebuilt Poppler support
+         - upgraded HarfBuzz support to 2.5.3
+         - rebuilt libSVG support
+         - rebuilt libSVG-Cairo support
+         - updated cURL certificates bundle
+         - rebuilt mod_fcgid
+         - rebuilt Apache H264 Streaming Module
+         - upgraded osm2pgsql commandline utility to today's git master
+         - rebuilt php_ogr extension
+         - upgraded Shapelib support to 1.5.0 (trac ticket 192)
+         - rebuilt shp2tile utility
+         - set "sys_temp_dir" in php.ini (trac ticket 204)
+         - upgraded APR support to 1.7.0
+         - added /Python/Scripts/ to PATH in setenv.bat (trac ticket 225)
+         - copied GDAL's python module into /Apache/cgi-bin/ (trac ticket 223)
+
+2019-03-12 Gateway Geomatics
+  * ms4w version 4.0.0 created. Notable changes are:
+         - upgraded PHP to 7.2.16 (trac ticket 194)
+         - re-add php_ogr extension (trac ticket 190)
+         - upgraded MapServer and MapScript (CSharp, Java, Python, PHP) to today's 7.4.0-dev  
+         - upgraded MapCache to today's 1.7dev
+         - handle null MapCache CURL_CA_BUNDLE environment variable occurring on some systems (trac ticket 189)
+         - include latest mapcache.xml.sample         
+         - added SSL_CERT_FILE path to setenv.bat
+         - set certificates bundle path in php.ini (trac ticket 171)
+         - set OPENSSL_CONF path in httpd.conf
+         - added osm2pgsql commandline utility, with Visual Studio 2017 compiler (trac ticket 48)
+         - clean unused files from the TinyOWS demo (trac ticket 183)
+         
+2019-03-12 Gateway Geomatics
+  * ms4w version 3.3.1 created. Notable changes are:
+         - upgraded MapCache to today's 1.7dev
+         - handle null MapCache CURL_CA_BUNDLE environment variable occurring on some systems (trac ticket 189)
+         - include latest mapcache.xml.sample
+         - added SSL_CERT_FILE path to setenv.bat
+         - set certificates bundle path in php.ini (trac ticket 171)
+         - set OPENSSL_CONF path in httpd.conf
+         
+         *This will mark the last official release of the MS4W 3.x series.*
+         *Security fixes to PHP 5.6.x have ended.*
+         *All MS4W users are strongly recommended to begin moving to MS4W version 4.*
+         *Please note that after 1 September 2019, MS4W 3.3.x will be removed from the main ms4w.com download page.*
+
+2019-02-11 Gateway Geomatics
+  * ms4w version 4.0.0-beta2 created. Notable changes are:
+         - upgraded PHP to 7.2.15 (trac ticket 184)
+         - upgraded APCu to 5.1.17
+         - upgraded MapServer and MapScript (CSharp, Java, Python, PHP) to today's 7.4.0-dev
+         - moved mapscript plugins into /ms4w/msplugins
+         - moved test-cgi-mapscript.py into /ms4w/msplugins/mapscript/python
+         - use relative paths for MapCache and mod_wsgi Apache modules (trac ticket 185)
+         - use relative paths for ZOO-Project's main.cfg
+
+2019-02-04 Gateway Geomatics
+  * ms4w version 4.0.0-beta1 created. Notable changes are:
+         - upgraded MapServer and MapScript (CSharp, Java, Python, PHP) to 7.4.0-dev with Visual Studio 2017 compiler
+         - upgraded PHP to 7.2.14 (trac ticket 67)
+         - added Python 3.7.0 into base installation, with Visual Studio 2017 compiler (trac ticket 65)
+         - added Mapbox Vector Tile (MVT) output for MapServer with Visual Studio 2017 compiler (trac ticket 166)
+         - added MVT demo, credit to Steve Lime
+         - upgraded GDAL to 2.4.0 with Visual Studio 2017 compiler (trac ticket 164)
+         - upgraded Apache HTTP Server to 2.4.38 with Visual Studio 2017 compiler (trac ticket 177)
+         - added mod_wsgi 4.6.5 for Apache HTTP Server with Visual Studio 2017 compiler
+         - rebuilt MapCache with Visual Studio 2017 compiler
+         - moved MapServer plugins (MSSQL, Oracle) into /ms4w/msplugins/
+         - upgraded libjpeg-turbo to git-20180802 with Visual Studio 2017 compiler
+         - rebuilt zlib support with Visual Studio 2017 compiler
+         - upgraded libPNG support to 1.6.35 with Visual Studio 2017 compiler
+         - upgraded libTIFF support to git-20180817 with Visual Studio 2017 compiler
+         - upgraded PROJ support to 5.2.0 with Visual Studio 2017 compiler (trac ticket 172)
+         - upgraded GeoTIFF support to 1.4.3 with Visual Studio 2017 compiler (trac ticket 180)
+         - rebuilt ECW (3.3 SDK) plugin with Visual Studio 2017 compiler
+         - upgraded Expat support to 2.2.6 with Visual Studio 2017 compiler
+         - upgraded Xerces support to 3.2.1 with Visual Studio 2017 compiler
+         - upgraded SZIP support to 2.1.1 with Visual Studio 2017 compiler
+         - upgraded HDF5 support to 1.10.2 with Visual Studio 2017 compiler
+         - upgraded HDF4 support to 4.2.14 with Visual Studio 2017 compiler
+         - upgraded MrSID support to SDK 9.5.4 with Visual Studio 2017 compiler (trac ticket 104)             
+         - upgraded PostgreSQL support to 10.5 with Visual Studio 2017 compiler
+         - upgraded MySQL support to 6.1.11 with Visual Studio 2017 compiler
+         - upgraded GEOS support to 3.7.1 with Visual Studio 2017 compiler (trac ticket 173)
+         - upgraded SQLite support to 3.24.0 with Visual Studio 2017 compiler
+         - upgraded ICONV support to 1.15 with Visual Studio 2017 compiler 
+         - upgraded FreeXL support to 1.0.5 with Visual Studio 2017 compiler
+         - upgraded libxml2 support to 2.9.8 with Visual Studio 2017 compiler
+         - added RT Topology Library 1.1.0-RC1 support with Visual Studio 2017 compiler (trac ticket 108)
+         - rebuilt ReadOSM support with Visual Studio 2017 compiler
+         - upgraded SpatiaLite support to 5.0.0-beta0 with Visual Studio 2017 compiler
+         - rebuilt spatialite-tools with Visual Studio 2017 compiler
+         - upgraded FITS support to 3.450 with Visual Studio 2017 compiler 
+         - upgraded OpenSSL support to 1.0.2q with Visual Studio 2017 compiler (trac ticket 178)
+         - upgraded cURL support to 7.63.0 with Visual Studio 2017 compiler
+         - upgraded NetCDF support to 4.6.2 with Visual Studio 2017 compiler
+         - upgraded LibKML support to git-20180824 with Visual Studio 2017 compiler          
+         - upgraded Freetype support to 2.9.1 with Visual Studio 2017 compiler
+         - rebuilt Pixman support with Visual Studio 2017 compiler
+         - upgraded Cairo support to 1.14.12 with Visual Studio 2017 compiler
+         - rebuilt Poppler support with Visual Studio 2017 compiler
+         - upgraded Python support to 3.7.0 with Visual Studio 2017 compiler
+         - upgraded SWIG support to 3.0.12 with Visual Studio 2017 compiler
+         - rebuilt Java, CSharp, Python GDAL bindings with Visual Studio 2017 compiler         
+         - rebuilt ECW (3.3 SDK), Oracle GDAL plugins with Visual Studio 2017 compiler
+         - rebuilt GIFLIB support with Visual Studio 2017 compiler
+         - upgraded HarfBuzz support to 1.9.0 with Visual Studio 2017 compiler
+         - rebuilt FriBidi support with Visual Studio 2017 compiler         
+         - upgraded PCRE support to 8.42 with Visual Studio 2017 compiler
+         - rebuilt libfcgi with Visual Studio 2017 compiler
+         - rebuilt uriparser with Visual Studio 2017 compiler
+         - rebuilt libSVG support with Visual Studio 2017 compiler
+         - rebuilt libSVG-Cairo support with Visual Studio 2017 compiler
+         - upgraded APR support to 1.6.5 with Visual Studio 2017 compiler
+         - rebuilt APR-util support with Visual Studio 2017 compiler
+         - rebuilt APR-iconv support with Visual Studio 2017 compiler
+         - updated cURL certificates bundle
+         - rebuilt mod_fcgid with Visual Studio 2017 compiler
+         - rebuilt Apache H264 Streaming Module with Visual Studio 2017 compiler
+         - upgraded BerkeleyDB support to 18.1.25 with Visual Studio 2017 compiler
+         - rebuilt TinyOWS with Visual Studio 2017 compiler
+         - added protobuf 3.6.1 support with Visual Studio 2017 compiler (trac ticket 166)
+         - added protobuf-c 1.3.1 support with Visual Studio 2017 compiler (trac ticket 166)
+         - rebuilt Shapelib support with Visual Studio 2017 compiler
+         - rebuilt shp2tile utility with Visual Studio 2017 compiler
+         - set certificates bundle path in php.ini (trac ticket 171)
+         - added Pixman support for MapServer build, to enhance layer compositing (trac ticket 174)
+         - added libxslt support for ZOO-Project build, with Visual Studio 2017 compiler
+         - added pthread support for ZOO-Project build, with Visual Studio 2017 compiler
+         - added CGIC support for ZOO-Project build, with Visual Studio 2017 compiler
+         - added JSON-C support for ZOO-Project build, with Visual Studio 2017 compiler
+         - added mono C# support for ZOO-Project build, with Visual Studio 2017 compiler
+         
+2019-01-23 Gateway Geomatics
+  * ms4w version 3.3.0 created. Notable changes are:
+         - upgraded Apache to 2.4.38 (trac ticket 177)
+         - rebuilt MapServer and MapScript (PHP, CSharp, Java, Python)         
+         - rebuilt Apache H264 Streaming Module
+         - rebuilt mod_fcgid         
+         - rebuilt MapCache 
+
+2019-01-11 Gateway Geomatics
+  * ms4w version 3.2.9 created. Notable changes are:
+         - upgraded PHP to 5.6.40 (trac ticket 181)         
+         - rebuilt MapServer and MapScript (PHP, CSharp, Java, Python)  
+
+2018-12-12 Gateway Geomatics
+  * ms4w version 3.2.8 created. Notable changes are:
+         - upgraded Apache to 2.4.37 (trac ticket 177)
+         - upgraded PHP to 5.6.39 (trac ticket 179)         
+         - upgraded OpenSSL support to 1.0.2q (trac ticket 178) 
+         - rebuilt cURL support
+         - rebuilt NetCDF support
+         - rebuilt GDAL
+         - rebuilt MapServer and MapScript (PHP, CSharp, Java, Python)         
+         - updated cURL certificates bundle     
+         - rebuilt Apache H264 Streaming Module
+         - rebuilt mod_fcgid         
+         - rebuilt MapCache   
+         
+2018-05-03 Gateway Geomatics
+  * ms4w version 3.2.7 created. Notable changes are:
+         - upgraded PROJ support to 5.1.0-dev (trac ticket 165)
+         - rebuilt GeoTIFF support
+         - rebuilt SpatiaLite support
+         - rebuilt spatialite-tools
+         - rebuilt GDAL
+	 - rebuilt MapServer and MapScript (PHP, CSharp, Java, Python)
+         - rebuilt MapCache
+         
+2018-05-01 Gateway Geomatics
+  * ms4w version 3.2.6 created. Notable changes are:
+         - upgraded GDAL to 2.2.4 (trac ticket 160)
+         - upgraded PHP to 5.6.36 (trac ticket 161)         
+         - upgraded Apache to 2.4.33 (trac ticket 159)         
+         - upgraded PROJ support to 5.0.1 (trac ticket 154)          
+         - upgraded OpenSSL support to 1.0.2o (trac ticket 158)
+         - upgraded cURL support to 7.59.0
+         - rebuilt MapServer and MapScript (PHP, CSharp, Java, Python)
+         - rebuilt MapCache
+         - rebuilt NetCDF support
+         - rebuilt GeoTIFF support
+         - rebuilt SpatiaLite support
+         - rebuilt spatialite-tools
+         - updated cURL certificates bundle
+         - rebuilt mod_fcgid
+         - rebuilt Apache H264 Streaming Module
+         - moved deplister.exe into /tools/php
+
+2018-03-02 Gateway Geomatics
+  * ms4w version 3.2.5 created. Notable changes are:
+         - upgraded PHP to 5.6.34 (trac ticket 155)   
+         - add missing PROJ datum grid files (trac ticket 156)
+
+2018-02-16 Gateway Geomatics
+  * ms4w version 3.2.4 created. Notable changes are:
+         - upgraded PHP to 5.6.33 (trac ticket 145)   
+         - upgraded licensing to year 2018 (trac ticket 153)
+         - add missing bison.simple file to packaged UnixUtils (trac ticket 129)         
+         
+2017-11-23 Gateway Geomatics
+  * ms4w version 3.2.3 created. Notable changes are:  
+         - upgraded to MapServer 7.0.7 and GDAL-2.2.3 because of 
+           libjpeg-turbo 1.5.2 support error (trac ticket 132)
+         - upgraded PHP to 5.6.32 (trac ticket 145)                   
+         - upgraded to MapCache 1.6.1 (trac ticket 117)   
+         - upgraded Apache to 2.4.29 (trac ticket 140)         
+         - downgraded zlib support to 1.2.7 (trac ticket 127)           
+         - upgraded libPNG support to 1.6.32 (trac ticket 127)
+         - change to use internal libTIFF and GeoTIFF formats for GDAL
+           (trac ticket 130)
+         - added JPEG commandline utilities           
+         - added GeoTIFF commandline utilities
+         - rebuilt HDF5 support
+         - rebuilt HDF4 support
+         - upgraded PostgreSQL support to 10.0
+         - upgraded GEOS support to 3.6.2
+         - upgraded FreeXL support to 1.0.4 (trac ticket 123)
+         - upgraded libxml2 support to 2.9.6
+         - rebuilt ReadOSM support
+         - rebuilt SpatiaLite support
+         - rebuilt spatialite-tools
+         - upgraded cURL support to 7.56.0
+         - rebuilt NetCDF support
+         - upgraded Freetype support to 2.8.1
+         - rebuilt Cairo support
+         - rebuilt Poppler support
+         - added CSharp GDAL bindings into folder /ms4w/gdalbindings/csharp
+         - upgraded HarfBuzz support to 1.6.0
+         - rebuilt libSVG support
+         - rebuilt libSVG-Cairo support 
+         - upgraded Shapelib support to 1.4.1 (trac ticket 134)
+         - rebuilt shp2tile utility
+         - upgraded APR library to 1.6.3
+         - upgraded APR-util library to 1.6.1
+         - upgraded APR-iconv library to 1.2.2
+         - updated cURL certificates bundle
+         - rebuilt mod_fcgid
+         - rebuilt Apache H264 Streaming Module
+         - rebuilt TinyOWS         
+         - added note about C++ Redistributable in the README (trac ticket 131)
+         - added w+ (write-only) explanation to formats section of README
+           (trac ticket 139)
+         - updated link to issue tracker to https://www.ms4w.com/trac/
+           (trac ticket 141)
+         - upgraded OpenSSL support to 1.0.2m (trac ticket 147)
+         - upgraded libTIFF support to 4.0.9 (trac ticket 149)  
+         
+
+2017-07-13 Gateway Geomatics
+  * ms4w version 3.2.2 created. Notable changes are: 
+         - upgraded MapServer and MapScript (CSharp, Java, Python, PHP) to 7.0.6
+         - upgraded GDAL to 2.2.1 (trac ticket 111)
+         - upgraded PHP to 5.6.31 (trac ticket 122)        
+         - upgraded Apache to 2.4.27 (trac ticket 119)
+         - enabled OPcache PHP extension for Mapbender performance (trac ticket 63)
+         - built MapServer with support for Z geometry values (trac ticket 120)         
+         - updated cURL certificates bundle
+         - rebuilt mod_fcgid
+         - rebuilt Apache H264 Streaming Module
+         - rebuilt MapCache
+         - rebuilt TinyOWS
+         - changed JPEG library to libjpeg-turbo (trac ticket 121)
+         - upgraded libPNG support to 1.6.29
+         - upgraded libTIFF support to 4.0.8 (trac ticket 114)  
+         - upgraded GeoTIFF support to SVN-trunk-20170623
+         - rebuilt HDF4 support
+         - upgraded HDF5 support to 1.10.1 
+         - upgraded PostgreSQL support to 9.6.3
+         - upgraded MySQL support to 5.7.18       
+         - upgraded SQLite support to 3.19.3 (trac ticket 107)      
+	 - rebuilt SpatiaLite support
+         - upgraded OpenSSL support to 1.0.2l (trac ticket 116)	 
+         - upgraded cURL support to 7.54.1
+         - added curl.exe utility into /tools
+         - rebuilt NetCDF support
+         - upgraded Freetype support to 2.8
+         - upgraded Cairo support to 1.14.10        
+         - rebuilt Poppler support
+         - upgraded to Esri File Geodatabase 1.5 API support (trac ticket 109)
+         - upgraded to Oracle SDK 12.2.0.1.0  
+         - upgraded PCRE support to 8.40         
+         - upgraded HarfBuzz support to 1.4.6
+         - rebuilt libSVG support
+         - rebuilt libSVG-Cairo support
+         - upgraded Shapelib support to 1.4.0 (trac ticket 72)
+         - rebuilt shp2tile utility
+         - renamed Apache access and error log files
+         
+2017-02-15 Gateway Geomatics
+  * ms4w version 3.2.1 created. Notable changes are:  
+         - fixed SVG symbols display in MapServer (trac ticket 3)
+         - modified setup.exe installer to check for VC Redistributable, 
+           and install if necessary
+         - rebuilt ApacheMonitor.exe (trac ticket 106)         
+         - fixed MapCache loading issue, by using branch-1-4 (trac ticket 105)
+         - fixed spelling mistake in README_INSTALL.txt (trac ticket 103)
+         
+2017-02-01 Gateway Geomatics
+  * ms4w version 3.2.0 created. Notable changes are:  
+         - upgraded PHP to 5.6.30 with Visual Studio 2012 compiler
+         - upgraded MapServer and MapScript (CSharp, Java, Python, PHP) to 7.0.4  
+           with Visual Studio 2012 compiler       
+         - rebuilt MapServer plugins for Oracle & Microsoft SQL Server 2008 
+           with Visual Studio 2012 compiler
+         - upgraded GDAL to 2.1.3 with Visual Studio 2012 compiler (trac ticket 69)
+         - added Oracle, Java, CSharp, ECW (3.3 SDK) GDAL plugins with Visual Studio 2012 compiler
+         - moved all GDAL plugins into /gdalplugins/           
+         - upgraded Apache to 2.4.25 with Visual Studio 2012 compiler
+         - updated cURL certificates bundle
+         - rebuilt mod_fcgid with Visual Studio 2012 compiler
+         - upgraded BerkeleyDB support to 6.2.23 with Visual Studio 2012 compiler
+         - upgraded MapCache to 1.5-dev with Visual Studio 2012 compiler
+         - rebuilt Apache H264 Streaming Module with Visual Studio 2012 compiler
+         - upgraded TinyOWS to 1.2-dev with Visual Studio 2012 compiler  
+         - rebuilt JPEG support with Visual Studio 2012 compiler  
+         - rebuilt zlib support with Visual Studio 2012 compiler
+         - upgraded libPNG support to 1.6.27 with Visual Studio 2012 compiler
+         - upgraded libTIFF support to 4.0.7 with Visual Studio 2012 compiler   
+         - upgraded PROJ.4 support to 4.9.3 with Visual Studio 2012 compiler  
+         - upgraded GeoTIFF support to SVN-trunk-20170106 with Visual Studio 2012 compiler
+         - rebuilt ECW (3.3 SDK) plugin with Visual Studio 2012 compiler           
+         - upgraded Expat support to 2.2.0 with Visual Studio 2012 compiler
+         - upgraded Xerces support to 3.1.4 with Visual Studio 2012 compiler
+         - rebuilt SZIP support with Visual Studio 2012 compiler
+         - upgraded HDF5 support to 1.10.0-patch1 with Visual Studio 2012 compiler  
+         - upgraded HDF4 support to 4.2.12 with Visual Studio 2012 compiler
+         - rebuilt MrSID support with Visual Studio 2012 compiler       
+         - upgraded PostgreSQL support to 9.6.1 with Visual Studio 2012 compiler
+         - upgraded MySQL support to 5.7.17 with Visual Studio 2012 compiler
+         - upgraded GEOS support to 3.6.0 with Visual Studio 2012 compiler
+         - upgraded SQLite support to 3.16.2 with Visual Studio 2012 compiler         
+         - rebuilt ICONV support with Visual Studio 2012 compiler
+         - rebuilt FreeXL support with Visual Studio 2012 compiler
+         - upgraded libxml2 support to 2.9.4 with Visual Studio 2012 compiler
+         - rebuilt SpatiaLite support with Visual Studio 2012 compiler
+         - rebuilt ReadOSM support with Visual Studio 2012 compiler         
+         - rebuilt spatialite-tools support with Visual Studio 2012 compiler
+         - added README for spatialite-tools
+         - upgraded FITS support to 3.410 with Visual Studio 2012 compiler 
+         - upgraded OpenSSL support to 1.0.2k with Visual Studio 2012 compiler
+         - upgraded cURL support to 7.52.1 with Visual Studio 2012 compiler 
+         - rebuilt NetCDF support with Visual Studio 2012 compiler
+         - upgraded Python support to 2.7.13 with Visual Studio 2012 compiler
+         - upgraded LibKML support to git-20170118 with Visual Studio 2012 compiler          
+         - upgraded Freetype support to 2.7.1 with Visual Studio 2012 compiler  
+         - rebuilt Pixman support with Visual Studio 2012 compiler  
+         - upgraded Cairo support to 1.14.8 with Visual Studio 2012 compiler         
+         - upgraded Poppler support to 0.51.0 with Visual Studio 2012 compiler
+         - rebuilt FriBidi support with Visual Studio 2012 compiler
+         - rebuilt FastCGI support with Visual Studio 2012 compiler
+         - upgraded GIFLIB support to 5.1.2 with Visual Studio 2012 compiler
+         - upgraded PCRE support to 8.39 with Visual Studio 2012 compiler
+         - upgraded HarfBuzz support to 1.3.4 with Visual Studio 2012 compiler   
+         - removed Esri File Geodatabase driver (use OpenFileGDB driver instead)
+         
+2016-06-27 Gateway Geomatics
+  * ms4w version 4.0.0-alpha3 created. Notable changes are:  
+         - upgraded PHP to 7.0.8 with Visual Studio 2015 compiler (trac ticket 5)
+         - built additional PHP extensions with Visual Studio 2015 compiler: 
+           pdo_mysql (trac ticket 52), pdo_oci, oci8, bzip2 
+         - rebuilt all GDAL plugins and bindings           
+         - moved CSharp, Java, Python bindings into folder /ms4w/gdalbindings/
+         - updated script /gdalbindings/python/test-cgi-mapscript.py for Python 3 
+         
+         - *PHPMapScript will not work in this version, needs dev work + funding* 
+         - *see http://mapserver.org/development/rfc/ms-rfc-117.html*
+
+2016-06-20 Gateway Geomatics
+  * ms4w version 4.0.0-alpha2 created. Notable changes are:  
+         - rebuilt MapServer 7.1-dev with Visual Studio 2015 compiler         
+         - rebuilt Apache with Visual Studio 2015 compiler
+         - upgraded MapCache to 1.5-dev with Visual Studio 2015 compiler
+         - rebuilt mod_fcgid with Visual Studio 2015 compiler
+         - upgraded OpenSSL support to 1.0.2h with Visual Studio 2015 compiler
+         - upgraded cURL support to 7.49.1 with Visual Studio 2015 compiler  
+         - rebuilt Apache H264 Streaming Module with Visual Studio 2015 compiler
+         - upgraded BerkeleyDB support to 6.2.23 with Visual Studio 2015 compiler
+         
+         - *still need to rebuild PHP 7 (& its extensions), therefore PHP & MapScript 
+           will not work in this version*        
+         
+2016-05-06 Gateway Geomatics
+  * ms4w version 3.1.4 created. Notable changes are: 
+         - upgraded GDAL to 2.1.0 (trac ticket 50)
+         - upgraded Apache to 2.4.20 (trac ticket 55)         
+         - upgraded OpenSSL support to 1.0.2h (trac ticket 57)
+         - upgraded CURL support to 7.48.0         
+
+2016-04-21 Gateway Geomatics
+  * ms4w version 4.0.0-alpha1 created. Notable changes are:
+         - rebuilt JPEG support with Visual Studio 2015 compiler
+         - rebuilt zlib support with Visual Studio 2015 compiler
+         - rebuilt libPNG support with Visual Studio 2015 compiler  
+         - rebuilt libTIFF support with Visual Studio 2015 compiler
+         - rebuilt PROJ.4 support with Visual Studio 2015 compiler
+         - upgraded GeoTIFF support to SVN-trunk-03282016 with Visual Studio 2015 compiler
+         - upgraded Expat support to 2.1.1 with Visual Studio 2015 compiler
+         - upgraded Xerces support to 3.1.3 with Visual Studio 2015 compiler
+         - rebuilt SZIP support with Visual Studio 2015 compiler
+         - upgraded MrSID support to SDK 9.5.1 with Visual Studio 2015 compiler       
+         - upgraded PostgreSQL support to 9.5.2 with Visual Studio 2015 compiler
+         - upgraded MySQL support to 5.7.11 with Visual Studio 2015 compiler
+         - upgraded GEOS support to SVN-trunk-0404016 with Visual Studio 2015 compiler
+         - upgraded SQLite support to 3.12.0 with Visual Studio 2015 compiler
+         - upgraded ICONV support to 1.14 with Visual Studio 2015 compiler
+         - upgraded FreeXL support to 1.0.2 with Visual Studio 2015 compiler
+         - rebuilt libxml2 support with Visual Studio 2015 compiler
+         - upgraded Python support to 3.5.1 with Visual Studio 2015 compiler
+         - upgraded MySQL support to 5.7.12 with Visual Studio 2015 compiler
+         - upgraded SpatiaLite support to 4.4.0-RC0 with Visual Studio 2015 compiler
+         - rebuilt ReadOSM support with Visual Studio 2015 compiler
+         - upgraded spatialite-tools support to 4.4.0-RC0 with Visual Studio 2015 compiler
+         - upgraded FITS support to 3.380 with Visual Studio 2015 compiler 
+         - rebuilt OpenSSL support with Visual Studio 2015 compiler
+         - upgraded cURL support to 7.48.0 with Visual Studio 2015 compiler 
+         - rebuilt NetCDF support with Visual Studio 2015 compiler
+         - upgraded LibKML support to git-04182016 with Visual Studio 2015 compiler 
+         - upgraded Freetype support to 2.6.3 with Visual Studio 2015 compiler  
+         - upgraded Pixman support to 0.34.0 with Visual Studio 2015 compiler        
+         - rebuilt Cairo support with Visual Studio 2015 compiler
+         - rebuilt Poppler support with Visual Studio 2015 compiler
+         - upgraded SWIG support to 3.0.8 with Visual Studio 2015 compiler
+         - rebuilt Python, Oracle GDAL plugins with Visual Studio 2015 compiler
+         - added Java, CSharp, ECW (3.3 SDK) GDAL plugins with Visual Studio 2015 compiler
+         - moved all GDAL plugins into /gdalplugins/
+         - added HDF5 1.8.16 support with Visual Studio 2015 compiler
+         - added HDF4 4.2.11 support with Visual Studio 2015 compiler
+         - upgraded GDAL support to 2.1.0-dev with Visual Studio 2015 compiler 
+         - upgraded PCRE support to 8.38 with Visual Studio 2015 compiler
+         - rebuilt FriBidi support with Visual Studio 2015 compiler
+         - upgraded HarfBuzz support to 1.2.6 with Visual Studio 2015 compiler
+         - upgraded GIFLIB support to 5.1.2 with Visual Studio 2015 compiler
+         - rebuilt FastCGI support with Visual Studio 2015 compiler         
+         - *still need to rebuild MapServer (& its libraries), Apache (& its modules), 
+           PHP (& its extensions), ...*
+         - *therefore MapServer, Apache, PHP will not work in this version*
+         
+2016-03-03 Gateway Geomatics
+  * ms4w version 3.1.3 created. Notable changes are:  
+         - upgraded MapServer and MapScript to 7.0.1 (trac ticket 47)
+         - upgraded OpenSSL support to 1.0.2g (trac ticket 46) 
+         - upgraded CURL support to 7.47.1
+         - added sample MapServer fonts and symbolset into /apps/etc/ (trac ticket 49)
+         - upgraded to MapCache 1.4.1 (trac ticket 39)
+
+2016-01-30 Gateway Geomatics
+  * ms4w version 3.1.2 created. Notable changes are:
+         - upgraded MapServer and MapScript to 7.0.1-dev
+         - upgraded GDAL to 2.0.2 (trac ticket 36)
+         - upgraded Apache to 2.4.18 (trac ticket 35)
+         - disabled "expose_php" in php.ini (trac ticket 33)
+         - upgraded the CA bundle file in /Apache/conf/ca-bundle/         
+         - upgraded JPEG support to 9b
+         - upgraded libPNG support to 1.6.21 
+         - upgraded libTIFF support to CVS-head-01262016         
+         - upgraded GeoTIFF support to SVN-trunk-01252016
+         - upgraded PROJ.4 support to 4.9.2 (trac ticket 17)
+         - upgraded PostgreSQL support to 9.5.0  
+         - upgraded GEOS support to SVN-trunk-01272016 
+         - upgraded libxml2 support to 2.9.3
+         - upgraded Freetype support to 2.6.2    
+         - upgraded Pixman support to 0.32.8        
+         - upgraded Cairo support to 1.14.6   
+         - upgraded Poppler support to 0.39.0   
+         - upgraded OpenSSL support to 1.0.2f (trac ticket 37)   
+         - upgraded CURL support to 7.47.0
+         - upgraded NetCDF support to 4.4.0
+         - upgraded HarfBuzz support to 1.1.3
+         - disabled PATH setting in Apache, regarding issue with Oracle
+           connections (trac ticket 26)
+         
+2015-12-18 Gateway Geomatics
+  * ms4w version 3.1.1 created. Notable changes are:
+         - upgraded GDAL to 2.0.1 (trac ticket 18)
+         - upgraded to Python 2.7.11 support
+         - upgraded GDAL bindings for Python 2.7.11
+         - added local GDAL/OGR html format pages
+         - upgraded Apache to 2.4.17 (trac ticket 25)
+         - upgraded to OpenSSL 1.0.2e  
+         - added openssl.exe utility
+         - upgraded to CURL 7.46.0  
+         - upgraded the CA bundle file in /Apache/conf/ca-bundle/   
+         - added missing php_oci8 dlls (trac ticket 26)
+
+2015-09-10 Gateway Geomatics
+  * ms4w version 3.1.0 created. Notable changes are: 
+         - upgraded PHP to 5.4.45 security release (trac ticket 16)
+         - compiled PHP additionally with fileinfo, intl, apcu (trac ticket 6)
+         - enabled Apache mod_rewrite module (trac ticket 6)
+         - configured Apache settings for AcceptFilter, EnableSendfile, EnableMMAP (trac ticket 14)
+
+2015-08-07 Gateway Geomatics
+  * ms4w version 3.1.0-beta4 created. Notable changes are:  
+         - upgraded MapServer and MapScript to 7.0.0
+         - upgraded GDAL to 2.0.0
+         - upgraded Apache to 2.4.12 
+         - upgraded PHP to 5.4.44
+         - added H264 Streaming Module for Apache
+         - upgraded the CA bundle file in /Apache/conf/ca-bundle/         
+         - upgraded to libPNG 1.6.17 
+         - upgraded to libTIFF-CVS-master-06162015 
+         - upgraded to GeoTIFF-SVN-trunk-06162015 
+         - upgraded to PROJ.4-git-master-06162015   
+         - upgraded to Xerces 3.1.2
+         - upgraded to HDF5 1.8.15-patch1
+         - upgraded to PostgreSQL 9.4.4 
+         - upgraded to MySQL 5.5.44 
+         - upgraded to GEOS-SVN-trunk-06182015  
+         - upgraded to sqlite 3.8.10.2
+         - added FreeXL 1.0.1
+         - upgraded to libxml2 2.9.2
+         - upgraded to libspatialite 4.3.0-RC1
+         - added ReadOSM 1.0.0e
+         - added spatialite-tools 4.3.0-RC1
+         - added spatialite tools to setenv.bat         
+         - upgraded to OpenSSL 1.0.2c
+         - upgraded to CURL 7.43.0
+         - upgraded NetCDF to 4.3.3.1
+         - upgraded to Freetype 2.6
+         - upgraded to Pixman 0.32.6         
+         - upgraded to Cairo 1.14.2
+         - upgraded to Poppler 0.33.0
+         - added HarfBuzz 0.9.41
+         - added libSVG 0.1.4
+         - added libSVG-Cairo 0.1.6
+         - upgraded to PCRE 8.37
+         - upgraded to shapelib 1.3.0
+         - added Unix commandline tools
+         - upgraded to Oracle SDK 12.1.0.2.0
+         - upgraded to TinyOWS 1.1.1 & added demo
+         - upgraded to BerkeleyDB 6.1.26
+         - upgraded to MapCache 1.4.0
+
+2014-07-11 Gateway Geomatics
+  * ms4w version 3.1.0-beta3 created. Notable changes are:
+         - upgraded GDAL to 1.11.0
+         - upgraded to jpeg 9a support for GDAL and MapServer          
+         - upgraded to libPNG 1.6.12 support for GDAL and 
+           MapServer  
+         - upgraded to MrSID SDK 9.1 support for GDAL           
+         - upgraded to PostgreSQL 9.3.4 support for GDAL  
+         - upgraded to OpenSSL 1.0.1h support for GDAL
+         - upgraded to CURL 7.37.0 support for GDAL and MapServer  
+         - upgraded to Freetype 2.5.3 support for MapServer
+         - upgraded to libKML git-07112014 support for GDAL         
+         - upgraded to Poppler 0.26.2 support for GDAL 
+         - upgraded to Esri File Geodatabase 1.3 API support for GDAL 
+         - upgraded the CA bundle file in /Apache/conf/ca-bundle/ 
+         - upgraded mod_fcgid to 2.3.9
+
+2014-01-15 Gateway Geomatics
+  * ms4w version 3.1.0-beta2 created. Notable changes are:
+         - upgraded MapServer and MapScript to 6.4.1  
+         - upgraded GDAL to 1.10.1
+         - upgraded Apache to 2.2.26
+         - upgraded PHP to 5.4.24        
+         - upgraded the CA bundle file in /Apache/conf/ca-bundle/
+         - upgraded to libPNG 1.6.8 support for GDAL and 
+           MapServer 
+         - upgraded to PostgreSQL 9.3.2 support for GDAL         
+         - upgraded to OpenSSL 1.0.1f support for GDAL
+         - upgraded to CURL 7.34.0 support for GDAL and MapServer  
+         - upgraded to GEOS 3.4.2 support for GDAL and MapServer
+         - upgraded to Freetype 2.5.2 support for MapServer
+         - upgraded to Poppler 0.24.5 support for GDAL 
+         - upgraded to Cairo 1.12.16 support for MapServer         
+         - upgraded to libxml2 2.9.1 support for MapServer 
+         - upgraded to MrSID SDK 9.0 support for GDAL
+         - upgraded to Oracle SDK 12.1.0.1.0 for GDAL and MapServer 
+         - upgraded to zlib 1.2.8 support for GDAL and MapServer  
+    
+2013-04-20 Gateway Geomatics
+  * ms4w version 3.1.0-beta1 created. Notable changes are:
+         - upgraded MapServer and MapScript to 6.2.1  
+         - upgraded GDAL to 1.10.0-rc4
+         - upgraded Apache to 2.2.24
+         - upgraded PHP to 5.4.14         
+         - upgraded the CA bundle file in /Apache/conf/ca-bundle/
+         - upgraded to jpeg 9 support for GDAL and MapServer          
+         - upgraded to libPNG 1.6.1 support for GDAL and 
+           MapServer 
+         - upgraded to libTIFF 4.0.3 support for GDAL 
+         - upgraded to HDF5 1.8.10-patch1 support for GDAL
+         - upgraded to PostgreSQL 9.2.4 support for GDAL         
+         - upgraded to OpenSSL 1.0.1e support for GDAL
+         - upgraded to CURL 7.30.0 support for GDAL and MapServer  
+         - upgraded to GEOS 3.3.8 support for GDAL and MapServer
+         - upgraded to Freetype 2.4.11 support for MapServer
+         - upgraded to Poppler 0.22.3 support for GDAL 
+         - upgraded to Cairo 1.12.14 support for MapServer         
+         - upgraded to libxml2 2.9.0 support for MapServer 
+         - upgraded to MapCache (Apache module and seeder) 
+           as of Mar 21, 2013 build
+         - added commandline utilities dbsql, sqlite3 
+         - add tinyows.exe into /cgi-bin/ (as of Apr 20, 2013 
+           build)
+
+2012-05-26 Gateway Geomatics
+  * ms4w version 3.0.6 created. Notable changes are:
+         - rebuilt cairo, hdf5, libxml2 due to reliance on old
+           zlib version (ticket 2394)
+
+2012-05-25 Gateway Geomatics
+  * ms4w version 3.0.5 created. Notable changes are:
+         - upgraded MapServer and MapScript to 6.0.3 (ticket 2393)  
+         - upgraded GDAL to 1.9.1 (ticket 2387)  
+         - upgraded PHP to 5.4.3 (ticket 2368)
+         - security: 
+             - moved php.exe from the cgi-bin to the /tools directory
+             - moved /Apache/htdocs/phpinfo.php to /tmp
+             - thank you to Mike Arnold
+         - upgraded Apache to 2.2.22, with OpenSSL 0.9.8t (ticket 2392)  
+         - upgraded mod_fcgid to 2.3.7
+         - upgraded the CA bundle file in /Apache/conf/ca-bundle/
+         - upgraded to jpeg 8d support for GDAL and MapServer 
+         - upgraded to zlib 1.2.7 support for GDAL and MapServer  
+         - upgraded to libPNG 1.5.10 support for GDAL and 
+           MapServer 
+         - upgraded to libTIFF 4.0.1 support for GDAL
+         - upgraded to GeoTIFF 1.4.0 support for GDAL (ticket 2391)
+         - upgraded to expat 2.1.0 support for GDAL
+         - upgraded to MrSID SDK 8.5 support for GDAL
+         - upgraded to PostgreSQL 9.1.3 support for GDAL
+         - upgraded PROJ.4 to 4.8.0 (ticket 2366)
+         - upgraded to Oracle SDK 11.2.0.3.0 for GDAL and MapServer 
+         - upgraded to Esri File Geodatabase 1.2 API support for GDAL
+         - upgraded to OpenSSL 1.0.1c support for GDAL
+         - upgraded to CURL 7.25.0 support for GDAL and MapServer  
+         - upgraded to GEOS 3.3.3 support for GDAL and 
+           MapServer (ticket 2377) 
+         - upgraded to libKML svn-05242012 support for GDAL
+         - upgraded to Freetype 2.4.9 support for MapServer
+         - replaced GNU RegEx library with PCRE library (ticket 2365)
+         - upgraded to libxml2 2.7.8 support for MapServer         
+
+2012-02-13 Gateway Geomatics
+  * ms4w version 3.0.4 created. Notable changes are:
+         - upgraded PHP to 5.3.10 (ticket 2362)
+         - upgraded MapServer and MapScript to 6.0.2 release (ticket 2364)
+
+2012-01-22 Gateway Geomatics
+  * ms4w version 3.0.4-beta1 created. Notable changes are:
+         - added MapCache module to Apache (ticket 2306)
+         - upgraded GDAL to 1.9.0 (ticket 2356)   
+         - upgraded Apache to 2.2.21, with OpenSSL 0.9.8r (ticket 2349)
+         - upgraded PHP to 5.3.9 (ticket 2343)
+         - rebuilt PHP with LDAP support (ticket 2353)         
+         - added Apache and PHP licenses to MS4W Component 
+           Licensing (ticket 2310) 
+         - added Esri File Geodatabase support for GDAL (ticket 2338)
+         - upgraded to GEOS 3.3.2 support for GDAL and 
+           MapServer (ticket 2357)
+         - upgraded to libPNG 1.5.7 support for GDAL and 
+           MapServer (ticket 2287)
+         - upgraded to libTIFF 4.0.0 support for GDAL (ticket 2358)
+         - upgraded to GeoTIFF 1.3.1-dev support for GDAL
+         - upgraded to PostgreSQL 9.1.2 support for GDAL
+         - upgraded to Freetype 2.4.8 support for MapServer
+         - upgraded to Oracle SDK 11.2.0.2.0 for GDAL and MapServer
+         - upgraded to Poppler 0.20.0 support for GDAL         
+
+2011-07-12 Gateway Geomatics
+  * ms4w version 3.0.3 created. Notable changes are:
+         - upgraded MapServer and MapScript to 6.0.1 security release 
+           (ticket 2336)  
+         - upgraded GDAL to 1.8.1RC2 (ticket 2337)    
+         - upgraded Apache to 2.2.19, with OpenSSL 0.9.8r (ticket 2325)
+         - added libpoppler library to GDAL build to read geospatial 
+           PDF documents (ticket 2308)
+         - added Cairo library for PDF and SVG output in MapServer
+         - added giflib library to MapServer build
+         - added missing Python scripts into /python/gdal/ (ticket 2317)
+         - removed extra SetEnv PATH from Apache's httpd.conf (ticket 2312)
+         - added VERSION.txt document to MS4W root (ticket 2309)
+
+2011-04-08 Gateway Geomatics
+  * ms4w version 3.0.2 created. Notable changes are:
+         - upgraded PHP to 5.3.6 (ticket 2299)
+         - added missing CURL_CA_BUNDLE to Apache (ticket 2305)
+         - added libKML support for GDAL (ticket 2294)
+
+2011-01-27 Gateway Geomatics
+  * ms4w version 3.0.1 created. Notable changes are:
+         - upgraded MapServer and MapScript to 5.6.6 release 
+           (ticket 2286)  
+         - upgraded GDAL to 1.8.0 (ticket 2289)  
+         - upgraded to MrSID SDK 8.0 support for GDAL (ticket 2291)
+         
+2011-01-11 Gateway Geomatics
+  * ms4w version 3.0 created. Notable changes are:
+         - upgraded MapServer and MapScript to 5.6.5 release 
+           (ticket 2246)  
+         - upgraded GDAL to 1.7.3 (ticket 2280)  
+         - upgraded Apache to 2.2.17 (ticket 2279)
+         - upgraded PHP to 5.3.5 (ticket 2278)
+         - rebuilt PHP with exif support (ticket 2261)
+         - upgraded mod_fcgid to 2.3.6 (ticket 2281)
+         - fixed GIF symbol rendering problem based on size 
+           (ticket 2094)
+         - upgraded to PostgreSQL 9.0.2 support for GDAL         
+         - upgraded to jpeg 8b support for GDAL and MapServer
+         - upgraded to zlib 1.2.5 support for GDAL and MapServer
+         - upgraded to GeoTIFF 1.3.1-dev support for GDAL
+         - upgraded to xerces 3.1.1 support for GDAL
+         - upgraded to HDF5 5.1.8 support for GDAL
+         - upgraded to OpenSSL 1.0.0c support for GDAL
+         - upgraded to CURL 7.21.3 support for GDAL and MapServer
+         - upgraded to Freetype 2.4.4 support for MapServer
+         - upgraded to Iconv 1.11.1 support for MapServer
+         - upgraded to libxml2 2.7.7 support for MapServer
+         - added shptreetst utility (ticket 2253)
+
+2010-04-20 Gateway Geomatics
+  * ms4w version 3.0-beta11 created. Notable changes are:
+        - upgraded Apache to 2.2.15 (ticket 2178)
+        - upgraded PHP to 5.3.2 (ticket 2174)
+        - rebuilt PHP with PDO ODBC and PGSQL support (ticket 2168)
+        - rebuilt PHP with MCrypt support (ticket 2177)
+        - upgraded mod_fcgid to 2.3.5
+        - upgraded GDAL to 1.7.1 (ticket 2179)
+        - upgraded MapServer and MapScript to 5.6.3 release 
+          (ticket 2170)  
+        - upgraded PROJ.4 to 4.7.0 (ticket 2106)
+        - upgraded GEOS to 3.2.2 (ticket 2132) 
+        - added spatialite support to GDAL build (ticket 2167)
+        - added GDAL's testepsg utility (ticket 2122)
+        - added msTileCache utilities (ticket 2158)
+        - added custom EPSG codes note to README_INSTALL (ticket 2182)
+        - added missing GeoTIFF csv files into /ms4w/gdaldata/ 
+          (ticket 2100)
+        
+2010-01-27 Gateway Geomatics
+  * ms4w version 3.0-beta10 created. Notable changes are:
+        - upgraded GDAL to 1.7.0 (ticket 2126)
+        - add soap extension to PHP (ticket 2154)
+        - add missing CSharp mapscript files (ticket 2155)
+        - add missing cgi-bin dlls (ticket 2156)
+
+2010-01-26 Gateway Geomatics
+  * ms4w version 3.0-beta9 created. Notable changes are:
+        - upgraded Apache to 2.2.14 (ticket 2151)
+        - upgraded PHP to 5.3.1 (ticket 2123)
+        - upgraded MapServer and MapScript to 5.6.1 release 
+          (ticket 2152) 
+        - added missing shapelib.dll for shp2tile utility 
+          (ticket 2127)
+        - change to mod_fcgid hosted on 
+          http://httpd.apache.org/mod_fcgid/ (ticket 2133)
+
+2009-09-08 Gateway Geomatics
+  * ms4w version 3.0-beta8 created. Notable changes are:
+        - added multibyte regex support to PHP, required 
+          for Mapbender package (ticket 2086)
+
+2009-09-01 Gateway Geomatics
+  * ms4w version 3.0-beta7 created. Notable changes are:
+        - added mbstring and gettext libraries to PHP, required 
+          for Mapbender package (ticket 2086)
+        - modified Python MapScript filenames in README_INSTALL
+          (ticket 2087)
+
+2009-07-31 Gateway Geomatics
+  * ms4w version 3.0-beta6 created. Notable changes are:
+        - modified Python GDAL module name for Python 2.6 (ticket 2007)
+        - added Python GDAL note in README_INSTALL (ticket 2007)
+
+2009-07-23 Gateway Geomatics
+  * ms4w version 3.0-beta5 created. Notable changes are:
+        - upgraded MapServer and MapScript to 5.4.2 release          
+        - upgraded PHP to 5.3.0 (ticket 2075)
+        - rebuilt PHP with dbase support (ticket 2077)
+        - modified Curl certificates bundle (ticket 1762)
+        - modified php.ini settings for ka-Map package (ticket 2049)
+        - added SDE note in README_INSTALL (ticket 2076)
+
+2009-07-02 Gateway Geomatics
+  * ms4w version 3.0-beta4 created. Notable changes are:
+        - added notes for FastCGI with Oracle in README_INSTALL.html 
+          (ticket 2074)
+        - added Curl certificates bundle (ticket 1762)
+        - rebuilt SDE MapServer plugins (ticket 2072)  
+        - removed DEM Utilities (ticket 2070)
+
+2009-06-23 Gateway Geomatics
+  * ms4w version 3.0-beta3 created. Notable changes are:
+        - upgraded MapServer and MapScript to 5.4.1 release  
+        - upgraded GDAL to svn-06232009       
+        - upgraded to geos 3.1-branch (svn 06232009)
+        - upgraded to Oracle 11g support for GDAL and MapServer
+        - rebuilt SDE plugins for beta release
+
+2009-05-02 Gateway Geomatics
+  * ms4w version 3.0-beta2 created. Only change was:
+        - use Apache binaries from ApacheLounge (ticket 2039)      
+
+2009-04-28 Gateway Geomatics
+  * ms4w version 3.0-beta1 created. Notable changes are:
+        - upgraded MapServer and MapScript to 5.4.0 release  
+        - upgraded GDAL to svn-04272009 (ticket 1977)
+        - upgraded Apache to 2.2.11 (ticket 2008)       
+        - upgraded PHP to 5.3.0-rc2 (ticket 1976)
+        - built all dependencies with MSVC 2008 compiler        
+        - upgraded to png 1.2.35 support for GDAL and MapServer 
+          (ticket#1625)
+        - upgraded to libTIFF-cvs-04152009 support for GDAL       
+        - upgraded to GeoTIFF 1.2.5 support for GDAL
+        - upgraded to xerces 3.0.1 support for GDAL      
+        - upgraded to hdf5 1.8.2 support for GDAL
+        - upgraded to mrsid SDK 7.0.0.2181 support for GDAL       
+        - upgraded to postgresql 8.3.7 support for GDAL and MapServer
+        - upgraded to mysql 5.1.34 support for GDAL     
+        - upgraded to fits 3.14 support for GDAL     
+        - upgraded to proj svn-04222009 support for GDAL and 
+          MapServer (ticket#2018)  
+        - added openssql 0.9.8k support to libcurl build for GDAL and
+          MapServer (ticket#1762) 
+        - upgraded to libcurl 7.19.4 support for GDAL  and MapServer
+          (ticket#1762)    
+        - upgraded to geos 3.1.0 support for GDAL  and MapServer 
+          (ticket#2025)   
+        - upgraded to swig 1.3.39 support for GDAL  and MapServer    
+        - upgraded to python 2.6.2 support for GDAL  and MapServer    
+        - upgraded to freetype 2.3.9 support for MapServer    
+        - upgraded to pdflib-lite 7.0.4pl support for GDAL 
+          and MapServer    
+        - upgraded to libxml 2.7.3 support for MapServer   
+        - removed ecw support from GDAL build (ticket#2037)
+        - removed demtools because of new gdaldem utility in GDAL
+        - upgraded to oracle 11g support for GDAL and MapServer
+
+2008-12-01 Jeff McKenna
+  * ms4w version 2.3.1 created. Notable changes are:
+        - upgraded mapserver and mapscript to 5.2.1 release
+        - upgraded Apache to 2.2.10 (ticket 1969)       
+        - upgraded GDAL to 1.6.0 RC2 (ticket 1973)
+        - upgraded PROJ.4 to 4.6.1 release
+        - rebuilt plugin for Microsoft SQL Server 2008 (ticket 1964)
+        - added SDE PATH note to documentation (ticket 1939)
+
+2008-09-24 Jeff McKenna
+  * ms4w version 2.3.0 created. Only change was:
+        - added plugin for Microsoft SQL Server 2008 support 
+          (ticket 1944)
+
+2008-08-30 Jeff McKenna
+  * ms4w version 2.2.9 created. Only change was:
+        - replaced libmysql.dll with older version (ticket 1730)
+
+2008-08-08 Jeff McKenna
+  * ms4w version 2.2.8 created. Notable changes are:
+        - upgraded mapserver and mapscript to 5.2.0 release
+        - upgraded Apache to 2.2.9 (ticket 1903)       
+        - upgraded GDAL to 1.5.2 release (ticket 1905)
+        - upgraded PHP to 5.2.6 (ticket 1902)
+        - added fribidi2 support to MapServer build, which allows
+          rendering of UTF8 labels with shaping support for 
+          Arabic and Hebrew (ticket 1914)
+        - upgraded PROJ.4 to 4.6.1 RC1 (ticket 1590)
+        - upgraded PostgreSQL support in GDAL and MapServer
+          to version 8.3.3
+        - added mod_fcgid to Apache and updated README with
+          instructions (ticket 1631)
+
+2008-02-08 Jeff McKenna 
+  * ms4w version 2.2.7 created. Notable changes are:
+        - upgraded mapserver and mapscript to 5.0.2 release
+        - upgraded GDAL to 1.5.0 release (ticket 1830)
+        - upgraded to Python 2.5.1 support for GDAL and MapServer 
+          (ticket 1831)
+        - upgraded PHP to 5.2.5 (ticket 1834)
+        - upgraded Apache to 2.2.8 (ticket 1835) 
+        - upgraded to GD 2.0.35 support for MapServer (ticket 1820) 
+        - upgraded to SWIG 1.3.33 support for GDAL and MapServer 
+          (ticket 1780)
+        - upgraded to libTIFF CVS support (02/04/08) for GDAL
+        - added DEMtools utilities (ticket 1813)
+        - upgraded SDE and Oracle plugin files for GDAL and MapServer
+
+2007-09-17 Jeff McKenna 
+  * ms4w version 2.2.6 created. Notable changes are:
+        - upgraded mapserver and mapscript to 5.0 release
+        - upgraded GDAL to 1.4.2 release (ticket 1745)
+        - upgraded PHP to 5.2.4 (ticket 1779)
+        - added missing PHP_OGR and OWTChart docs (ticket 1785)
+        - added non-root install notes to README (ticket 1760)
+        - added new SDE plugin files for SDE connections and
+          updated the README (ticket 1729)
+        - added Oracle builds for mapscript C, Java, and
+          Python (ticket 1783)
+        - added SHAPELIB/contrib utilities (ticket 1797)
+
+2007-08-22 Y Assefa 
+  * ms4w version 2.2.5 created. Notable changes are:
+        - upgraded mapserver and mapscript to 4.10.3 release
+
+2007-06-08 Jeff McKenna
+   * ms4w version 2.2.4 created. Notable changes are:
+        - upgraded mapserver and mapscript to 4.10.2 release
+        - upgraded GDAL to 1.4.1 release
+        - upgraded PHP to 5.2.3 (ticket 1715)  
+        - added PROJ_LIB variable to setenv.bat (ticket 1706)
+        - modified Python mapscript path in README (ticket 1712)
+        - added AVCE00 utilties (ticket 1691)
+        - SDE support is temporarily unavailable (ticket 1729)
+
+2007-03-06 Jeff McKenna
+   * ms4w version 2.2.3 created. Notable changes are:
+        - upgraded mapserver and mapscript to 4.10.1 release
+        - upgraded Apache to 2.2.4
+        - upgraded PHP to 5.2.1 (ticket 1654)
+        - added Vista installation notes (ticket 1653)
+        - upgraded to PostgreSQL 8.2.3 support for GDAL and MapServer
+        - removed php_mapscript_4.10.0.dll, the file is now named
+          php_mapscript.dll
+
+2007-01-17 Jeff McKenna
+   * ms4w version 2.2.2 created.  Notable changes are:
+        - upgraded GDAL to 1.4.0 release
+        - added FITS, HDF5, SQLite, NetCDF format support to 
+          GDAL build
+        - upgraded to GeoTIFF 1.2.3 for GDAL build
+        - upgraded to libTIFF 3.8.2 for GDAL build
+        - upgraded to Python 2.4.4 support for GDAL and MapServer
+        - upgraded to swig 1.3.29 support for GDAL and MapServer
+        - added FastCGI support for MapServer build
+
+2006-11-09 Jeff McKenna 
+   * ms4w versions 2.2.1 created. Only changes are:
+        - upgraded PHP to 5.2.0 (ticket 1611)
+        - included 'php_mapscript.dll' file (ticket 1602)
+
+2006-10-12 Jeff McKenna 
+   * ms4w versions 2.2 and 1.6 created. Notable changes are:
+        - upgraded mapserver and mapscript to 4.10.0 release
+        - upgraded Apache to 2.2.3
+        - upgraded PHP to 5.1.6 and 4.4.4 (tickets 1328, 1550)
+        - modified PHP5's php.ini to allow short tags (ticket 1538)
+        
+2006-07-20 Jeff McKenna 
+   * ms4w versions 2.1 and 1.5.5 created. Notable changes are:
+        - upgraded mapserver and mapscript to 4.8.4
+        - fixed oracle and sde plugins (ticket 1499)
+        - upgraded PostgreSQL in build to 8.1.4 (ticket 1467)
+        - upgraded GEOS in build to 2.2.3
+        - enabled MrSID support by default
+        - modified libcurl in build for SSL support (ticket 1524)
+
+2006-05-30 Jeff McKenna 
+   * ms4w 2.0 branch created. Notable changes are:
+        - upgraded PHP to 5.1.4
+        
+2006-05-30 Jeff McKenna 
+   * ms4w version 1.5.4 created. Notable changes are:
+        - upgraded Apache to 2.0.58 (ticket 1465)
+        - increased mapserver's max number of 
+          symbols to 128 (ticket 1462)
+        - upgraded shp2tile to 1.14
+        - added gdal python files (ticket 1464)
+        - added Python mapscript instructions to readme, 
+          and test script, from Ken Boss
+
+2006-05-09 Jeff McKenna 
+   * ms4w version 1.5.3 created. Notable changes are:
+        - rebuilt mapserver due to microsoft runtime
+          library dependency (ticket 1458)
+        - included Oracle and SDE libmap dlls as part
+          of package (ticket 1445)
+        - upgraded GDAL to 1.3.2
+        - upgraded GEOS to 2.2.2
+
+2006-05-04 Jeff McKenna 
+   * ms4w version 1.5.2 created. Notable changes are:
+        - rebuilt mapserver due to php.exe crash (ticket 1409)
+        - update gdal to cvs snapshot
+        - updated gdaldata files
+        - added mapscript build notes to README (ticket 1395)
+        - modified php.ini to load postgresql extension
+          by default (ticket 1443)
+        - added Apache password authentication section to
+          README (ticket 1446)
+
+2006-04-12 Jeff McKenna
+   * ms4w version 1.5.1 created. Only change was:
+        - rebuilt PHP/mapscript due to processQueryTemplate
+          crash (MapServer ticket 1745)
+
+2006-04-01 Jeff McKenna 
+   * ms4w version 1.5.0 created. Notable changes are:
+        - built with Hobu's MapServer buildkit (ticket 1382)
+        - added mapserver release of 4.8.3
+        - added CSharp, Java, and Python mapscript
+        - modified gdalplugin structure for MrSID, Oracle,
+          and SDE plugins
+        - removed mapserver 4.6.1 release from package
+        - added shpdiff.exe utility (ticket 1371)
+        - fixed path in mapserv-utils readme (ticket 1368)
+        - add missing files in /proj/nad directory (ticket 1385)
+        - added plugin instructions for MrSID, Oracle, and
+          SDE to README_INSTALL doc
+        - added library versions used in MapServer build to
+          README_INSTALL doc
+
+2006-03-02 Jeff McKenna
+   * ms4w version 1.4.1 created. Notable changes are:
+        - upgraded PHP to 4.4.3-dev (ticket 1310)
+        - added GDAL_DRIVER_PATH to setenv.bat (ticket 1020)
+
+2006-02-07 Jeff McKenna 
+   * ms4w version 1.4.0 created. Notable changes are:
+        - added mapserver release of 4.8.1 cgi and phpmapscript
+        - removed mapserver 4.4.2 release from package
+        - upgraded PHP to 4.4.2 (ticket 1188)
+        - combined setenv.bat files for all utilities (ticket 1190)
+        - upgraded shp2tile to 1.13 release (ticket 1106)
+        - added dll-hell description to troubleshooting in
+          install doc (ticket 1194)
+        - added error reporting options to quickmap.php (ticket 1239)
+        - added apache-restart.bat script (ticket 1200)
+        - added shapelib utilities 
+        - restructured /tools
+
+2005-10-27 Jeff McKenna
+   * ms4w version 1.3.0 created. Notable changes are:
+        - upgraded libcurl to 7.15.0 in cgi/mapscript (ticket 1177)
+        - upgraded GDAL/OGR to 1.3.1
+        - upgraded PHP to 4.4.0 (ticket 1179)
+        - upgraded apache to 2.0.55
+        - added recent gdal reference files
+        - cleaned proj directory
+        - created rSt/html version of install document
+
+2005-09-15 Jeff McKenna
+   * ms4w version 1.2.2 created. One change:
+        - upgraded to mapserver 4.6.1
+
+2005-06-24 Jeff McKenna 
+   * ms4w version 1.2.1 created. One change:
+        - added new version of php_ogr.dll (ticket 1100)
+
+2005-06-22 Jeff McKenna 
+   * ms4w version 1.2 created. Notable changes are:
+        - added mapserver final release of 4.6.0 cgi and mapscript
+        - added apache-uninstall batch file
+
+2005-05-25 Jeff McKenna
+   * ms4w version 1.1 created. Notable changes are:
+        - added mapserver release of 4.6.0 beta2 cgi and mapscript
+        - removed mapserver 4.2.1 files
+        - upgraded php to 4.3.11 (ticket 929)
+        - upgraded apache to 2.0.54
+        - added gdal utilities
+        - added shp2tile, obtained from http://imaptools.com/ 
+          (ticket 938)
+        - added all gdal reference files (ticket 1001)        
+        - added GDAL_DRIVER_PATH env variable and gdalplugins folder 
+          (ticket 1020)
+        - added php_sqlite extension (ticket 1021)
+        - added php_chameleon extension (ticket 1060)
+
+2004-12-22 Jeff McKenna 
+   * ms4w version 1.0.3 created. One change:
+        - upgraded to mapserver release of 4.4.1 cgi and mapscript
+
+2004-12-17 Jeff McKenna 
+   * ms4w version 1.0.2 created. One change:
+        - upgraded to php 4.3.10 due to a serious security issue
+          (http://www.php.net/release_4_3_10.php)
+
+2004-11-30 Jeff McKenna 
+   * ms4w version 1.0.1 created.  One change:
+        - upgraded to mapserver release of 4.4.0 cgi and mapscript
+
+2004-11-09 Jeff McKenna 
+   * ms4w version 1.0 created.  Notable changes are:
+        - added mapserver 4.4-beta2 cgi and mapscript
+        - removed mapserver 3.6 and 4.0 versions
+        - removed libwww dlls from cgi-bin
+        - moved php.ini to cgi-bin (ticket 667)
+        - moved xslt dlls (expat, iconv, sablot) to cgi-bin 
+          (ticket 677)
+        - modified setenv.bat for mapserv and  ogrinfo tools 
+          (ticket 605)
+        - updated readme_install.txt (ticket 536)
+        - included small script to delete tmp files
+        - added latest mapserv-utils files
+
+2004-07-21 Jeff McKenna 
+   * ms4w version 0.9 created.  Notable changes are:
+        - new version of mapserver 4.2 cgi and php_mapscript_42.dll
+          (version 4.2.1 release of mapserver)
+        - updated to Apache version 2.0.50
+        - updated to PHP version 4.3.7
+        - only one php.ini in package (/ms4w/apache/php/php.ini)
+        - added s57 support files to package
+        - added ogr utilities to package
+        - added mapserver utilities to package
+        - included pgsql75win (postgres for windows) as an extra
+          add-on package for ms4w
+        - added OWTChart documentation
+        - added install instructions (/ms4w/README_INSTALL.txt)
+
+2004-02-16 Paul Spencer 
+    * ms4w version 0.8 created.  Notable changes are:
+        - Updated the ms4w installation with new versions of
+          mapserver 4.1 cgi and php_mapscript_41.dll as of 2004 02 16.
+
+2003-10-16 Paul Spencer 
+    * ms4w version 0.6 created.  Notable changes are:
+        - removed httpd_local.conf that was inadvertently included
+          in 0.5.
+        - added php_ogr.dll to php extensions directory.
+
+2003-09-05 Paul Spencer 
+    * ms4w version 0.5 created.  Notable changes are:
+        - upgraded to PHP 4.3.3 release version
+        - upgraded to latest php_mapscript_40.dll
+          (some minor ticket fixes)
+        - added an auto-generated list for installed apps
+        - apps are now expected to provide an "app_name.pkg.html" file
+          in the /ms4w/Apache/htdocs directory that displays some
+          app-specific information under the Applications section of the
+          index page.
+
+2003-08-05 Paul Spencer 
+    * ms4w version 0.4 created.  Notable changes are:
+        - (ticket 12, 13, 19) replaced PHP MapScript DLL with latest 
+          version 4.0 release
+        - (ticket 18)updated php config by removing Zend stuff
+        - (ticket 8, 16) updated docs to include info on setting up 
+          ms4w on different drives
+        - (ticket 15) updated httpd.conf by moving include of httpd.d 
+          files to the end of the file so that included files can 
+          override defaults in the httpd.conf file (specifically 
+          for supporting installations that use map files on 
+          different root directories).
+
+2003-07-04 Paul Spencer 
+    * ms4w version 0.3 created.  Notable changes are:
+        - removed apps from base distribution and created
+          separate zips for them to reduce download size
+        - updated documentation
+
+2003-06-25 Paul Spencer 
+    * ms4w version 0.2 created.  Notable changes are:
+        - moved dlls from /ms4w/bin back into cgi-bin due to
+          configuration problems under apache.
+
+2003-06-12 Paul Spencer 
+    * created ms4w initial version from Daniel Morissette's first try.  Notable changes are:
+        - moved apps from Apache into own directory
+        - created httpd.d directory for apps and local config
+        - moved dlls from cgi-bin to /ms4w/bin for security

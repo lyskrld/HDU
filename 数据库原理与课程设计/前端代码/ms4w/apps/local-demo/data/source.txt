@@ -1,0 +1,4 @@
+- NaturalEarth 1:110m from https://www.naturalearthdata.com/downloads/
+
+- converted to SPATIALITE format (https://gdal.org/drv_sqlite.html)
+
